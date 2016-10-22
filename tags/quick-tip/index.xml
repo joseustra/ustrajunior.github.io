@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>José Carlos Ustra júnior</title>
+    <link>https://ustrajunior.com/tags/quick-tip/index.xml</link>
+    <description>Recent content on José Carlos Ustra júnior</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>José Carlos Ustra Júnior</copyright>
+    <atom:link href="https://ustrajunior.com/tags/quick-tip/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Quick tip - Retornando mais de um valor em um método</title>
+      <link>https://ustrajunior.com/blog/retornando-mais-de-um-valor-em-um-metodo/</link>
+      <pubDate>Thu, 27 Jun 2013 10:52:18 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/blog/retornando-mais-de-um-valor-em-um-metodo/</guid>
+      <description>&lt;p&gt;O comportamento padrão de um método Ruby, é retornar o último valor que ele possui. Então se tivermos o seguinte código:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;  def calc(x, y)
+    a = x + y
+    b = x - y
+    c = x * y
+    d = x / y
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Não importa quantas variáveis você tenha definido, o retorno sempre será a última, no caso &lt;strong&gt;d&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;calc(10, 5)
+=&amp;gt; 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Mas, em algum momento podemos precisar que esse método retorne mais de um valor. Por exemplo, estamos precisando do valor de &lt;strong&gt;a&lt;/strong&gt; e &lt;strong&gt;b&lt;/strong&gt;. Como podemos retornar ao mesmo tempo? É muito simples na verdade. Basta fazer o método retornar um array com os valores que desejamos.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;  def calc(x, y)
+    a = x + y
+    b = x - y
+    c = x * y
+    d = x / y
+    [a,b]
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;E para colocar cada valor em uma variável, basta fazer o seguinte:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;a, b = calc(10,5)
+=&amp;gt; [15, 5]
+
+a
+=&amp;gt; 15
+
+b
+=&amp;gt; 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Eu sei que o exemplo não foi grande coisa, mas acho que deu pra pegar a ideia.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Quick tip - Exclusão condicional em um Hash</title>
+      <link>https://ustrajunior.com/blog/quick-tip-exclusao-condicional-em-um-hash/</link>
+      <pubDate>Sun, 16 Jun 2013 10:28:41 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/blog/quick-tip-exclusao-condicional-em-um-hash/</guid>
+      <description>&lt;p&gt;Se você tem um hash e precisa remover algo dele, tem um função bem simples para esse serviço. O &lt;strong&gt;delete_if&lt;/strong&gt; é um
+método onde você pode passar um block e fazer sua validação para decidir quais elementos irá remover.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;# Supondo um Hash de cores com red, green e blue
+colors = { red: &#39;#FF0000&#39;, green: &#39;#008000&#39;, blue: &#39;#0000FF&#39; }
+
+# Mas eu não quero mais o red, então eu uso o **delete_if**
+colors.delete_if{ |key, value| key == :red }
+=&amp;gt; {:green=&amp;gt;&amp;quot;#008000&amp;quot;, :blue=&amp;gt;&amp;quot;#0000FF&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Simples assim.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

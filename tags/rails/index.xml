@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>José Carlos Ustra júnior</title>
+    <link>https://ustrajunior.com/tags/rails/index.xml</link>
+    <description>Recent content on José Carlos Ustra júnior</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>José Carlos Ustra Júnior</copyright>
+    <atom:link href="https://ustrajunior.com/tags/rails/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Formulário de contato sem banco de dados com ActiveAttr</title>
+      <link>https://ustrajunior.com/blog/formulario-de-contato-sem-banco-de-dados-com-activeattr/</link>
+      <pubDate>Fri, 14 Jun 2013 19:20:00 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/blog/formulario-de-contato-sem-banco-de-dados-com-activeattr/</guid>
+      <description>&lt;p&gt;As vezes precisamos criar um formulário de contato que simplesmente envie a mensagem por email mas não mantenha o registro no sistema.
+Quando se usa Rails, o fluxo normal é após o formulário ser submetido, a informação é salva no banco porque usamos ActiveRecord.&lt;/p&gt;
+
+&lt;p&gt;Para que possamos submeter um formulário e não salvar no banco mas mesmo assim ter as facilidades que o AR fornece, iremos usar o
+&lt;a href=&#34;https://github.com/cgriego/active_attr&#34;&gt;ActiveAttr&lt;/a&gt;. Essa gem permite que tenhamos validações no nosso model e usemos o
+&lt;em&gt;attr_accessible&lt;/em&gt; por exemplo.&lt;/p&gt;
+
+&lt;p&gt;Então vamos primeiramente criar nosso model e adicionar algumas validações.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;#app/models/contact.rb
+class Contact
+  # Primeiro, vamos adicionar o ActiveAttr
+  include ActiveAttr::Model
+
+  # agora definimos os campos que queremos usar
+  attribute :name
+  attribute :email
+  attribute :subject
+  attribute :content
+
+  # e da mesma forma que fazemos no AR, vamos dizer
+  # quais atributos podem ser passados pelo form
+  attr_accessible :name, :email, :subject, :content
+
+  # também iremos adicionar algumas validações básicas
+  validates_presence_of :name
+  validates_presence_of :email
+  validates_format_of :email,
+    :with =&amp;gt; /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
+  validates_presence_of :subject
+  validates_presence_of :content
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Com o model definido, o resto é basicamente a mesma coisa que você faria com qualquer controller e views usando AR.
+Vamos criar o controller que irá pegar os dados submetidos e passar para o Mailer para serem enviados por email.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;# app/controllers/contacts_controller.rb
+class ContactsController &amp;lt; ApplicationController
+  def new
+    @contact = Contact.new
+  end
+
+  def create
+    @contact = Contact.new(params[:contact])
+    # a única diferença do método create padrão do rails,
+    # é que iremos enviar por email e não chamar o método save
+    ContactMailer.support_mail(@contact).deliver
+    redirect_to root_path, notice: &#39;Your message was sent&#39;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Agora precisamos criar a view que irá conter nosso formulário.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;#app/views/contacts/new.html.erb
+# eu gosto de usar [simple_form](https://github.com/plataformatec/simple_form)
+&amp;lt;%= simple_form_for @contact do |f| %&amp;gt;
+    &amp;lt;%= f.error_notification %&amp;gt;
+
+    &amp;lt;%= f.input :name %&amp;gt;
+    &amp;lt;%= f.input :email %&amp;gt;
+    &amp;lt;%= f.input :subject %&amp;gt;
+    &amp;lt;%= f.input :content %&amp;gt;
+
+    &amp;lt;%= f.submit %&amp;gt;
+&amp;lt;% end %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Estamos com nosso formulário praticamente pronto, precisamos apenas criar o mailer para enviar as informações de contato.
+Nada demais aqui, apenas um mailer comum.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;#app/mailers/contact_mailer.rb
+class ContactMailer &amp;lt; ActionMailer::Base
+  default from: &amp;quot;from@example.com&amp;quot;
+
+  def contact_mail(contact)
+    @contact = contact
+    mail(to: &#39;contact@example.com&#39;, subject: @contact.subject)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A view do mailer também não tem nada demais, a mesma coisa que estamos acostumados a fazer.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;#app/views/contact_mailer/contact_mailer.html.erb
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;h1&amp;gt;New menssage from: &amp;lt;%= @contact.name %&amp;gt;&amp;lt;/h1&amp;gt;
+
+    &amp;lt;h2&amp;gt;&amp;lt;%= @contact.subject %&amp;gt;&amp;lt;/h2&amp;gt;
+    &amp;lt;p&amp;gt;&amp;lt;%= @contact.content %&amp;gt;&amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Com isso, temos um formulário de contato que envia a mensagem diretamente para o seu email de contato.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
