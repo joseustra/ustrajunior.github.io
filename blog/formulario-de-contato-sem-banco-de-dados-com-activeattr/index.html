@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Formulário de contato sem banco de dados com ActiveAttr &middot; José Carlos Ustra Júnior</title>
+        <meta name="description" content="As vezes precisamos criar um formulário de contato que simplesmente envie a mensagem por email mas não mantenha o registro no sistema. Quando se usa Rails, o fluxo normal é após o formulário ser submetido, a informação é salva no banco porque usamos ActiveRecord.
+Para que possamos submeter um formulário e não salvar no banco mas mesmo assim ter as facilidades que o AR fornece, iremos usar o ActiveAttr. Essa gem permite que tenhamos validações no nosso model e usemos o attr_accessible por exemplo.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.17" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Formulário de contato sem banco de dados com ActiveAttr">
+<meta property="og:description" content="As vezes precisamos criar um formulário de contato que simplesmente envie a mensagem por email mas não mantenha o registro no sistema. Quando se usa Rails, o fluxo normal é após o formulário ser submetido, a informação é salva no banco porque usamos ActiveRecord.
+Para que possamos submeter um formulário e não salvar no banco mas mesmo assim ter as facilidades que o AR fornece, iremos usar o ActiveAttr. Essa gem permite que tenhamos validações no nosso model e usemos o attr_accessible por exemplo.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ustrajunior.com/blog/formulario-de-contato-sem-banco-de-dados-com-activeattr/">
+        <link rel="stylesheet" href="https://ustrajunior.com/css/normalize.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+        
+        <link rel="stylesheet" href="https://ustrajunior.com/css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="José Carlos Ustra júnior" href="https://ustrajunior.com/">José Carlos Ustra júnior</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://ustrajunior.com/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/ustrajunior">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/ustrajunior">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://linkedin.com/in/ustrajunior">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="About" href="/page/about/">About</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Formulário de contato sem banco de dados com ActiveAttr</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2013-06-14" itemprop="datePublished">Fri, Jun 14, 2013</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="http://schema.org/Person">
+            <span itemprop="name">
+                <a href="" itemprop="url" rel="author">José Carlos Ustra Júnior</a>
+            </span>
+        </span>
+    </p>
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <p>As vezes precisamos criar um formulário de contato que simplesmente envie a mensagem por email mas não mantenha o registro no sistema.
+Quando se usa Rails, o fluxo normal é após o formulário ser submetido, a informação é salva no banco porque usamos ActiveRecord.</p>
+
+<p>Para que possamos submeter um formulário e não salvar no banco mas mesmo assim ter as facilidades que o AR fornece, iremos usar o
+<a href="https://github.com/cgriego/active_attr">ActiveAttr</a>. Essa gem permite que tenhamos validações no nosso model e usemos o
+<em>attr_accessible</em> por exemplo.</p>
+
+<p>Então vamos primeiramente criar nosso model e adicionar algumas validações.</p>
+
+<pre><code class="language-ruby">#app/models/contact.rb
+class Contact
+  # Primeiro, vamos adicionar o ActiveAttr
+  include ActiveAttr::Model
+
+  # agora definimos os campos que queremos usar
+  attribute :name
+  attribute :email
+  attribute :subject
+  attribute :content
+
+  # e da mesma forma que fazemos no AR, vamos dizer
+  # quais atributos podem ser passados pelo form
+  attr_accessible :name, :email, :subject, :content
+
+  # também iremos adicionar algumas validações básicas
+  validates_presence_of :name
+  validates_presence_of :email
+  validates_format_of :email,
+    :with =&gt; /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
+  validates_presence_of :subject
+  validates_presence_of :content
+end
+</code></pre>
+
+<p>Com o model definido, o resto é basicamente a mesma coisa que você faria com qualquer controller e views usando AR.
+Vamos criar o controller que irá pegar os dados submetidos e passar para o Mailer para serem enviados por email.</p>
+
+<pre><code class="language-ruby"># app/controllers/contacts_controller.rb
+class ContactsController &lt; ApplicationController
+  def new
+    @contact = Contact.new
+  end
+
+  def create
+    @contact = Contact.new(params[:contact])
+    # a única diferença do método create padrão do rails,
+    # é que iremos enviar por email e não chamar o método save
+    ContactMailer.support_mail(@contact).deliver
+    redirect_to root_path, notice: 'Your message was sent'
+  end
+end
+</code></pre>
+
+<p>Agora precisamos criar a view que irá conter nosso formulário.</p>
+
+<pre><code class="language-ruby">#app/views/contacts/new.html.erb
+# eu gosto de usar [simple_form](https://github.com/plataformatec/simple_form)
+&lt;%= simple_form_for @contact do |f| %&gt;
+    &lt;%= f.error_notification %&gt;
+
+    &lt;%= f.input :name %&gt;
+    &lt;%= f.input :email %&gt;
+    &lt;%= f.input :subject %&gt;
+    &lt;%= f.input :content %&gt;
+
+    &lt;%= f.submit %&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<p>Estamos com nosso formulário praticamente pronto, precisamos apenas criar o mailer para enviar as informações de contato.
+Nada demais aqui, apenas um mailer comum.</p>
+
+<pre><code class="language-ruby">#app/mailers/contact_mailer.rb
+class ContactMailer &lt; ActionMailer::Base
+  default from: &quot;from@example.com&quot;
+
+  def contact_mail(contact)
+    @contact = contact
+    mail(to: 'contact@example.com', subject: @contact.subject)
+  end
+end
+</code></pre>
+
+<p>A view do mailer também não tem nada demais, a mesma coisa que estamos acostumados a fazer.</p>
+
+<pre><code class="language-ruby">#app/views/contact_mailer/contact_mailer.html.erb
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;New menssage from: &lt;%= @contact.name %&gt;&lt;/h1&gt;
+
+    &lt;h2&gt;&lt;%= @contact.subject %&gt;&lt;/h2&gt;
+    &lt;p&gt;&lt;%= @contact.content %&gt;&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Com isso, temos um formulário de contato que envia a mensagem diretamente para o seu email de contato.</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+                 <a href="/tags/rails/">rails</a>
+            
+                 <a href="/tags/activeattr/">activeattr</a>
+            
+                 <a href="/tags/formularios/">formularios</a>
+            
+        </p>
+    
+
+    <div class="share">
+        <a class="icon-twitter" href="http://twitter.com/share?text=Formul%c3%a1rio%20de%20contato%20sem%20banco%20de%20dados%20com%20ActiveAttr&url=https%3a%2f%2fustrajunior.com%2fblog%2fformulario-de-contato-sem-banco-de-dados-com-activeattr%2f"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <i class="fa fa-twitter"></i>
+            <span class="hidden">Twitter</span>
+        </a>
+
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fustrajunior.com%2fblog%2fformulario-de-contato-sem-banco-de-dados-com-activeattr%2f"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <i class="fa fa-facebook"></i>
+            <span class="hidden">Facebook</span>
+        </a>
+
+        <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fustrajunior.com%2fblog%2fformulario-de-contato-sem-banco-de-dados-com-activeattr%2f"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+           <i class="fa fa-google-plus"></i>
+            <span class="hidden">Google+</span>
+        </a>
+    </div>
+</footer>
+
+        
+    <div class="comments">
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ustrajuniorblog';
+    var disqus_identifier = 'https:\/\/ustrajunior.com\/blog\/formulario-de-contato-sem-banco-de-dados-com-activeattr\/';
+    var disqus_title = 'Formulário de contato sem banco de dados com ActiveAttr';
+    var disqus_url = 'https:\/\/ustrajunior.com\/blog\/formulario-de-contato-sem-banco-de-dados-com-activeattr\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="José Carlos Ustra júnior" href="https://ustrajunior.com/">José Carlos Ustra júnior</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2016 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://ustrajunior.com/js/jquery-1.11.3.min.js"></script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/languages/go.min.js"></script>
+        <script src="https://ustrajunior.com/js/jquery.fitvids.js"></script>
+        <script src="https://ustrajunior.com/js/scripts.js"></script>
+    </body>
+</html>
+
