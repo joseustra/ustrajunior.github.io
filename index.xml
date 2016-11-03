@@ -7,8 +7,174 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>José Carlos Ustra Júnior</copyright>
-    <lastBuildDate>Fri, 21 Oct 2016 18:55:08 -0300</lastBuildDate>
+    <lastBuildDate>Thu, 03 Nov 2016 19:40:18 -0300</lastBuildDate>
     <atom:link href="https://ustrajunior.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>json: unmarshal custom date formats</title>
+      <link>https://ustrajunior.com/blog/json-unmarshal-custom-date-formats/</link>
+      <pubDate>Thu, 03 Nov 2016 19:40:18 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/blog/json-unmarshal-custom-date-formats/</guid>
+      <description>&lt;p&gt;When we are building a JSON API, many times we have to deal with dates that we can&amp;rsquo;t have control of the layout.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see a common example using a format that Go knows by default.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type Checkin struct {
+    Timestamp time.Time `json:&amp;quot;timestamp&amp;quot;`
+    User      string    `json:&amp;quot;user&amp;quot;`
+}
+
+func main() {
+    j := `{&amp;quot;timestamp&amp;quot;:&amp;quot;2016-11-02T08:18:20Z&amp;quot;, &amp;quot;user&amp;quot;:&amp;quot;John Doe&amp;quot;}`
+
+    var c Checkin
+    // error handling omitted for simplicity (don&#39;t do this).
+    json.Unmarshal([]byte(j), &amp;amp;c)
+
+    fmt.Println(c)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://play.golang.org/p/XVooaZGomG&#34;&gt;Run on Playground&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here, we are using the RFC3339 format, so Go will do the correct unmarshal and fill the Timestamp field on the struct.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s say, now, that we are consuming this information from a web service that uses a different date format.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func main() {
+    // using / to divide the date and space for the time
+    j := `{&amp;quot;timestamp&amp;quot;:&amp;quot;2016/11/02 08:18:20&amp;quot;, &amp;quot;user&amp;quot;:&amp;quot;John Doe&amp;quot;}`
+
+    var c Checkin
+    err := json.Unmarshal([]byte(j), &amp;amp;c)
+    if err != nil {
+        fmt.Println(err)
+    }
+
+    fmt.Println(c)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When we run this code we will see this error:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;parsing time &amp;quot;&amp;quot;2016/11/02 08:18:20&amp;quot;&amp;quot; as &amp;quot;&amp;quot;2006-01-02T15:04:05Z07:00&amp;quot;&amp;quot;: cannot parse &amp;quot;/11/02 08:18:20&amp;quot;&amp;quot; as &amp;quot;-&amp;quot; {0001-01-01 00:00:00 +0000 UTC }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is because Go doesn&amp;rsquo;t know how to handle this custom date format, so let&amp;rsquo;s write a custom date type to handle this special case.&lt;/p&gt;
+
+&lt;p&gt;The first thing to do is create a custom type for the date, for example, &lt;strong&gt;SpecialDate&lt;/strong&gt;. This new type needs to implement the &lt;a href=&#34;https://golang.org/pkg/encoding/json/#Unmarshaler&#34;&gt;Unmarshaler interface&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type SpecialDate struct {
+    time.Time
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, to implement the Unmarshaler interface, we need a function &lt;strong&gt;UnmarshalJSON&lt;/strong&gt; on the &lt;strong&gt;SpecialDate&lt;/strong&gt; type.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func (sd *SpecialDate) UnmarshalJSON(input []byte) error {
+    strInput := string(input)
+    strInput = strings.Trim(strInput, `&amp;quot;`)
+    newTime, err := time.Parse(&amp;quot;2006/01/02 15:04:05&amp;quot;, strInput)
+    if err != nil {
+        return err
+    }
+
+    sd.Time = newTime
+    return nil
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;First, we get the input that is a []byte and convert it to string, then we remove the excedent double quotes.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;strInput := string(input)
+strInput = strings.Trim(strInput, `&amp;quot;`)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Second, we do the parse using the layout for our case.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;newTime, err := time.Parse(&amp;quot;2006/01/02 15:04:05&amp;quot;, strInput)
+if err != nil {
+    return err
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;An explanation about the date layout. Normally, date layouts are used as yyyy/mm/dd but Go uses a real date and time to do the layout.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;year   == 2006
+month  == 01
+day    == 02
+hour   == 15
+minute == 04
+second == 05
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So, our case became &lt;strong&gt;2006/01/02 15:04:05&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;To finish our implementation, we need set the newTime to the SpecialDate and return nil because we don&amp;rsquo;t have errors.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;sd.Time = newTime
+return nil
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With our new type implemented, we can now change the &lt;strong&gt;Checkin&lt;/strong&gt; struct to use the new SpecialDate.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type Checkin struct {
+    Timestamp SpecialDate `json:&amp;quot;timestamp&amp;quot;`
+    User      string      `json:&amp;quot;user&amp;quot;`
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The rest will be the same, check the full code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
+
+import (
+    &amp;quot;encoding/json&amp;quot;
+    &amp;quot;fmt&amp;quot;
+    &amp;quot;strings&amp;quot;
+    &amp;quot;time&amp;quot;
+)
+
+type Checkin struct {
+    Timestamp SpecialDate `json:&amp;quot;timestamp&amp;quot;`
+    User      string      `json:&amp;quot;user&amp;quot;`
+}
+
+type SpecialDate struct {
+    time.Time
+}
+
+func (sd *SpecialDate) UnmarshalJSON(input []byte) error {
+    strInput := string(input)
+    strInput = strings.Trim(strInput, `&amp;quot;`)
+    newTime, err := time.Parse(&amp;quot;2006/01/02 15:04:05&amp;quot;, strInput)
+    if err != nil {
+        return err
+    }
+
+    sd.Time = newTime
+    return nil
+}
+
+func main() {
+    j := `{&amp;quot;timestamp&amp;quot;:&amp;quot;2016/11/02 08:18:20&amp;quot;, &amp;quot;user&amp;quot;:&amp;quot;John Doe&amp;quot;}`
+
+    var c Checkin
+    err := json.Unmarshal([]byte(j), &amp;amp;c)
+    if err != nil {
+        fmt.Println(err)
+    }
+
+    fmt.Println(c)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://play.golang.org/p/-nZY-oupPX&#34;&gt;Run on Playground&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I hope this help you with custom dates when working with JSON.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Variadic functions in Go</title>

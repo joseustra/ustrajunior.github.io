@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>json: unmarshal custom date formats &middot; José Carlos Ustra Júnior</title>
+        <meta name="description" content="When we are building a JSON API, many times we have to deal with dates that we can&rsquo;t have control of the layout.
+Let&rsquo;s see a common example using a format that Go knows by default.
+type Checkin struct { Timestamp time.Time `json:&quot;timestamp&quot;` User string `json:&quot;user&quot;` } func main() { j := `{&quot;timestamp&quot;:&quot;2016-11-02T08:18:20Z&quot;, &quot;user&quot;:&quot;John Doe&quot;}` var c Checkin // error handling omitted for simplicity (don&#39;t do this). json.Unmarshal([]byte(j), &amp;c) fmt.Println(c) }  Run on Playground.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.17" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="json: unmarshal custom date formats">
+<meta property="og:description" content="When we are building a JSON API, many times we have to deal with dates that we can&rsquo;t have control of the layout.
+Let&rsquo;s see a common example using a format that Go knows by default.
+type Checkin struct { Timestamp time.Time `json:&quot;timestamp&quot;` User string `json:&quot;user&quot;` } func main() { j := `{&quot;timestamp&quot;:&quot;2016-11-02T08:18:20Z&quot;, &quot;user&quot;:&quot;John Doe&quot;}` var c Checkin // error handling omitted for simplicity (don&#39;t do this). json.Unmarshal([]byte(j), &amp;c) fmt.Println(c) }  Run on Playground.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ustrajunior.com/blog/json-unmarshal-custom-date-formats/">
+        <link rel="stylesheet" href="https://ustrajunior.com/css/normalize.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+        
+        <link rel="stylesheet" href="https://ustrajunior.com/css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="José Carlos Ustra júnior" href="https://ustrajunior.com/">José Carlos Ustra júnior</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://ustrajunior.com/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/ustrajunior">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/ustrajunior">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://linkedin.com/in/ustrajunior">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="About" href="/page/about/">About</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">json: unmarshal custom date formats</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2016-11-03" itemprop="datePublished">Thu, Nov 3, 2016</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="http://schema.org/Person">
+            <span itemprop="name">
+                <a href="" itemprop="url" rel="author">José Carlos Ustra Júnior</a>
+            </span>
+        </span>
+    </p>
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <p>When we are building a JSON API, many times we have to deal with dates that we can&rsquo;t have control of the layout.</p>
+
+<p>Let&rsquo;s see a common example using a format that Go knows by default.</p>
+
+<pre><code class="language-go">type Checkin struct {
+    Timestamp time.Time `json:&quot;timestamp&quot;`
+    User      string    `json:&quot;user&quot;`
+}
+
+func main() {
+    j := `{&quot;timestamp&quot;:&quot;2016-11-02T08:18:20Z&quot;, &quot;user&quot;:&quot;John Doe&quot;}`
+
+    var c Checkin
+    // error handling omitted for simplicity (don't do this).
+    json.Unmarshal([]byte(j), &amp;c)
+
+    fmt.Println(c)
+}
+</code></pre>
+
+<p><a href="https://play.golang.org/p/XVooaZGomG">Run on Playground</a>.</p>
+
+<p>Here, we are using the RFC3339 format, so Go will do the correct unmarshal and fill the Timestamp field on the struct.</p>
+
+<p>Let&rsquo;s say, now, that we are consuming this information from a web service that uses a different date format.</p>
+
+<pre><code class="language-go">func main() {
+    // using / to divide the date and space for the time
+    j := `{&quot;timestamp&quot;:&quot;2016/11/02 08:18:20&quot;, &quot;user&quot;:&quot;John Doe&quot;}`
+
+    var c Checkin
+    err := json.Unmarshal([]byte(j), &amp;c)
+    if err != nil {
+        fmt.Println(err)
+    }
+
+    fmt.Println(c)
+}
+</code></pre>
+
+<p>When we run this code we will see this error:</p>
+
+<pre><code>parsing time &quot;&quot;2016/11/02 08:18:20&quot;&quot; as &quot;&quot;2006-01-02T15:04:05Z07:00&quot;&quot;: cannot parse &quot;/11/02 08:18:20&quot;&quot; as &quot;-&quot; {0001-01-01 00:00:00 +0000 UTC }
+</code></pre>
+
+<p>This is because Go doesn&rsquo;t know how to handle this custom date format, so let&rsquo;s write a custom date type to handle this special case.</p>
+
+<p>The first thing to do is create a custom type for the date, for example, <strong>SpecialDate</strong>. This new type needs to implement the <a href="https://golang.org/pkg/encoding/json/#Unmarshaler">Unmarshaler interface</a>.</p>
+
+<pre><code class="language-go">type SpecialDate struct {
+    time.Time
+}
+</code></pre>
+
+<p>Now, to implement the Unmarshaler interface, we need a function <strong>UnmarshalJSON</strong> on the <strong>SpecialDate</strong> type.</p>
+
+<pre><code class="language-go">func (sd *SpecialDate) UnmarshalJSON(input []byte) error {
+    strInput := string(input)
+    strInput = strings.Trim(strInput, `&quot;`)
+    newTime, err := time.Parse(&quot;2006/01/02 15:04:05&quot;, strInput)
+    if err != nil {
+        return err
+    }
+
+    sd.Time = newTime
+    return nil
+}
+</code></pre>
+
+<p>First, we get the input that is a []byte and convert it to string, then we remove the excedent double quotes.</p>
+
+<pre><code class="language-go">strInput := string(input)
+strInput = strings.Trim(strInput, `&quot;`)
+</code></pre>
+
+<p>Second, we do the parse using the layout for our case.</p>
+
+<pre><code class="language-go">newTime, err := time.Parse(&quot;2006/01/02 15:04:05&quot;, strInput)
+if err != nil {
+    return err
+}
+</code></pre>
+
+<p>An explanation about the date layout. Normally, date layouts are used as yyyy/mm/dd but Go uses a real date and time to do the layout.</p>
+
+<pre><code>year   == 2006
+month  == 01
+day    == 02
+hour   == 15
+minute == 04
+second == 05
+</code></pre>
+
+<p>So, our case became <strong>2006/01/02 15:04:05</strong>.</p>
+
+<p>To finish our implementation, we need set the newTime to the SpecialDate and return nil because we don&rsquo;t have errors.</p>
+
+<pre><code class="language-go">sd.Time = newTime
+return nil
+</code></pre>
+
+<p>With our new type implemented, we can now change the <strong>Checkin</strong> struct to use the new SpecialDate.</p>
+
+<pre><code class="language-go">type Checkin struct {
+    Timestamp SpecialDate `json:&quot;timestamp&quot;`
+    User      string      `json:&quot;user&quot;`
+}
+</code></pre>
+
+<p>The rest will be the same, check the full code.</p>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;encoding/json&quot;
+    &quot;fmt&quot;
+    &quot;strings&quot;
+    &quot;time&quot;
+)
+
+type Checkin struct {
+    Timestamp SpecialDate `json:&quot;timestamp&quot;`
+    User      string      `json:&quot;user&quot;`
+}
+
+type SpecialDate struct {
+    time.Time
+}
+
+func (sd *SpecialDate) UnmarshalJSON(input []byte) error {
+    strInput := string(input)
+    strInput = strings.Trim(strInput, `&quot;`)
+    newTime, err := time.Parse(&quot;2006/01/02 15:04:05&quot;, strInput)
+    if err != nil {
+        return err
+    }
+
+    sd.Time = newTime
+    return nil
+}
+
+func main() {
+    j := `{&quot;timestamp&quot;:&quot;2016/11/02 08:18:20&quot;, &quot;user&quot;:&quot;John Doe&quot;}`
+
+    var c Checkin
+    err := json.Unmarshal([]byte(j), &amp;c)
+    if err != nil {
+        fmt.Println(err)
+    }
+
+    fmt.Println(c)
+}
+</code></pre>
+
+<p><a href="https://play.golang.org/p/-nZY-oupPX">Run on Playground</a>.</p>
+
+<p>I hope this help you with custom dates when working with JSON.</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+
+    <div class="share">
+        <a class="icon-twitter" href="http://twitter.com/share?text=json%3a%20unmarshal%20custom%20date%20formats&url=https%3a%2f%2fustrajunior.com%2fblog%2fjson-unmarshal-custom-date-formats%2f"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <i class="fa fa-twitter"></i>
+            <span class="hidden">Twitter</span>
+        </a>
+
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fustrajunior.com%2fblog%2fjson-unmarshal-custom-date-formats%2f"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <i class="fa fa-facebook"></i>
+            <span class="hidden">Facebook</span>
+        </a>
+
+        <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fustrajunior.com%2fblog%2fjson-unmarshal-custom-date-formats%2f"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+           <i class="fa fa-google-plus"></i>
+            <span class="hidden">Google+</span>
+        </a>
+    </div>
+</footer>
+
+        
+    <div class="comments">
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ustrajuniorblog';
+    var disqus_identifier = 'https:\/\/ustrajunior.com\/blog\/json-unmarshal-custom-date-formats\/';
+    var disqus_title = 'json: unmarshal custom date formats';
+    var disqus_url = 'https:\/\/ustrajunior.com\/blog\/json-unmarshal-custom-date-formats\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="José Carlos Ustra júnior" href="https://ustrajunior.com/">José Carlos Ustra júnior</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2016 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://ustrajunior.com/js/jquery-1.11.3.min.js"></script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/languages/go.min.js"></script>
+        <script src="https://ustrajunior.com/js/jquery.fitvids.js"></script>
+        <script src="https://ustrajunior.com/js/scripts.js"></script>
+    </body>
+</html>
+
