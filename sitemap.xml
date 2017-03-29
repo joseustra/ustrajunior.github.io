@@ -2,11 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ustrajunior.com/</loc>
-    <lastmod>2016-11-03T19:40:18-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ustrajunior.com/blog/json-unmarshal-custom-date-formats/</loc>
     <lastmod>2016-11-03T19:40:18-03:00</lastmod>
   </url>
@@ -39,6 +34,101 @@
   <url>
     <loc>https://ustrajunior.com/blog/formulario-de-contato-sem-banco-de-dados-com-activeattr/</loc>
     <lastmod>2013-06-14T19:20:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/activeattr/</loc>
+    <lastmod>2013-06-14T19:20:00-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/blog/</loc>
+    <lastmod>2016-11-03T19:40:18-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/finders/</loc>
+    <lastmod>2013-12-17T11:07:51-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/formularios/</loc>
+    <lastmod>2013-06-14T19:20:00-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/functions/</loc>
+    <lastmod>2016-10-21T18:55:08-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/go/</loc>
+    <lastmod>2016-10-21T18:55:08-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/hash/</loc>
+    <lastmod>2013-06-16T10:28:41-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/</loc>
+    <lastmod>2016-11-03T19:40:18-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/methods/</loc>
+    <lastmod>2013-06-27T10:52:18-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/page/</loc>
+    <lastmod>2016-10-21T18:27:19-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/quick-tip/</loc>
+    <lastmod>2013-06-27T10:52:18-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/rails/</loc>
+    <lastmod>2013-06-14T19:20:00-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/rails4/</loc>
+    <lastmod>2013-12-17T11:07:51-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/ruby/</loc>
+    <lastmod>2013-06-27T10:52:18-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/variadic/</loc>
+    <lastmod>2016-10-21T18:55:08-03:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

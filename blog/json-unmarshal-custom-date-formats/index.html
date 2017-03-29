@@ -9,7 +9,7 @@ Let&rsquo;s see a common example using a format that Go knows by default.
 type Checkin struct { Timestamp time.Time `json:&quot;timestamp&quot;` User string `json:&quot;user&quot;` } func main() { j := `{&quot;timestamp&quot;:&quot;2016-11-02T08:18:20Z&quot;, &quot;user&quot;:&quot;John Doe&quot;}` var c Checkin // error handling omitted for simplicity (don&#39;t do this). json.Unmarshal([]byte(j), &amp;c) fmt.Println(c) }  Run on Playground.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.17" />
+        <meta name="generator" content="Hugo 0.19" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="json: unmarshal custom date formats">

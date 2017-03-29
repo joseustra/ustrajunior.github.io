@@ -242,9 +242,7 @@ func main() {
       <pubDate>Fri, 21 Oct 2016 18:27:19 -0300</pubDate>
       
       <guid>https://ustrajunior.com/page/about/</guid>
-      <description>&lt;p&gt;I’m 30 and I live in Natal (RN - Brazil). I’ve been coding, since 2006, in many different languages, like Delphi, Java, Ruby, Javascript and Go&lt;/p&gt;
-
-&lt;p&gt;I did a lot of Ruby code in the last five years and for the last two years, I&amp;rsquo;m doing a lot of Go code to create fast and reliable products.&lt;/p&gt;
+      <description>&lt;p&gt;My name is José Carlos, I&amp;rsquo;m a software engineer crafting applications since 2006. I code a lot in Go, Ruby and Javascript.&lt;/p&gt;
 </description>
     </item>
     
