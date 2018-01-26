@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Code With Me</title>
+    <link>https://ustrajunior.com/tags/</link>
+    <description>Recent content in Tags on Code With Me</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>José Carlos Ustra Júnior</copyright>
+    <lastBuildDate>Fri, 14 Jun 2013 19:20:00 -0300</lastBuildDate>
+    
+	<atom:link href="https://ustrajunior.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Activeattr</title>
+      <link>https://ustrajunior.com/tags/activeattr/</link>
+      <pubDate>Fri, 14 Jun 2013 19:20:00 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/tags/activeattr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Finders</title>
+      <link>https://ustrajunior.com/tags/finders/</link>
+      <pubDate>Tue, 17 Dec 2013 11:07:51 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/tags/finders/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Formularios</title>
+      <link>https://ustrajunior.com/tags/formularios/</link>
+      <pubDate>Fri, 14 Jun 2013 19:20:00 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/tags/formularios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Functions</title>
+      <link>https://ustrajunior.com/tags/functions/</link>
+      <pubDate>Fri, 21 Oct 2016 18:55:08 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/tags/functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>https://ustrajunior.com/tags/go/</link>
+      <pubDate>Thu, 03 Nov 2016 19:40:18 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hash</title>
+      <link>https://ustrajunior.com/tags/hash/</link>
+      <pubDate>Sun, 16 Jun 2013 10:28:41 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/tags/hash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Methods</title>
+      <link>https://ustrajunior.com/tags/methods/</link>
+      <pubDate>Thu, 27 Jun 2013 10:52:18 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/tags/methods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quick Tip</title>
+      <link>https://ustrajunior.com/tags/quick-tip/</link>
+      <pubDate>Thu, 27 Jun 2013 10:52:18 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/tags/quick-tip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rails</title>
+      <link>https://ustrajunior.com/tags/rails/</link>
+      <pubDate>Fri, 14 Jun 2013 19:20:00 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/tags/rails/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rails4</title>
+      <link>https://ustrajunior.com/tags/rails4/</link>
+      <pubDate>Tue, 17 Dec 2013 11:07:51 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/tags/rails4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruby</title>
+      <link>https://ustrajunior.com/tags/ruby/</link>
+      <pubDate>Thu, 27 Jun 2013 10:52:18 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/tags/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Time.time</title>
+      <link>https://ustrajunior.com/tags/time.time/</link>
+      <pubDate>Thu, 03 Nov 2016 19:40:18 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/tags/time.time/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Variadic</title>
+      <link>https://ustrajunior.com/tags/variadic/</link>
+      <pubDate>Fri, 21 Oct 2016 18:55:08 -0300</pubDate>
+      
+      <guid>https://ustrajunior.com/tags/variadic/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Functions on Code With Me</title>
-    <link>https://ustrajunior.com/tags/functions/index.xml</link>
+    <link>https://ustrajunior.com/tags/functions/</link>
     <description>Recent content in Functions on Code With Me</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en-US</language>
     <copyright>José Carlos Ustra Júnior</copyright>
-    <atom:link href="https://ustrajunior.com/tags/functions/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Oct 2016 18:55:08 -0300</lastBuildDate>
+    
+	<atom:link href="https://ustrajunior.com/tags/functions/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Variadic functions in Go</title>
@@ -15,58 +18,10 @@
       <pubDate>Fri, 21 Oct 2016 18:55:08 -0300</pubDate>
       
       <guid>https://ustrajunior.com/blog/variadic-functions-in-go/</guid>
-      <description>&lt;p&gt;Let&amp;rsquo;s create a function that we can pass 3 numbers as arguments and them it returns the average of this numbers.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func average(num1, num2, num3 float64) float64 {
-	avg := (num1 + num2 + num3) / 3
-
-	return avg
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and then, you call it like this&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func main() {
-	fmt.Println(average(2, 4, 6))
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Le&amp;rsquo;ts run to see if works&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ go run average.go
-4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It works. Super easy, but not so useful. Normally, when you want to calculate the average, you don&amp;rsquo;t know how many arguments you will need to accept. How can we handle this?&lt;/p&gt;
-
-&lt;p&gt;When you have a function that you can&amp;rsquo;t determinate the number of arguments you are going to pass then you need a Variadic function.&lt;/p&gt;
-
-&lt;p&gt;So, to do this, we just need use &amp;lsquo;&amp;hellip;&amp;rsquo; before the parameter type on the function.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func average(numbers ...float64) float64 {
- // ...
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;But now, we don&amp;rsquo;t have separated values anymore, the &lt;em&gt;&amp;hellip;float64&lt;/em&gt; will be transformed in a slice of float64 and we need to iterate over the items to calculate the average.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func average(numbers ...float64) float64 {
-	var total float64
-	for _, num := range numbers {
-		total += num
-	}
-
-	return total / float64(len(numbers))
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This is a Variadic function in Go and we can pass as many arguments we want.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func main() {
-	fmt.Println(average(2, 4, 6, 9, 5, 3, 12))
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>Let&amp;rsquo;s create a function that we can pass 3 numbers as arguments and them it returns the average of this numbers.
+func average(num1, num2, num3 float64) float64 { avg := (num1 + num2 + num3) / 3 return avg }  and then, you call it like this
+func main() { fmt.Println(average(2, 4, 6)) }  Le&amp;rsquo;ts run to see if works
+$ go run average.go 4  It works. Super easy, but not so useful.</description>
     </item>
     
   </channel>

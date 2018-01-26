@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Finders on Code With Me</title>
-    <link>https://ustrajunior.com/tags/finders/index.xml</link>
+    <link>https://ustrajunior.com/tags/finders/</link>
     <description>Recent content in Finders on Code With Me</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en-US</language>
     <copyright>José Carlos Ustra Júnior</copyright>
-    <atom:link href="https://ustrajunior.com/tags/finders/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Dec 2013 11:07:51 -0300</lastBuildDate>
+    
+	<atom:link href="https://ustrajunior.com/tags/finders/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Novos finders no rails 4</title>
@@ -15,32 +18,8 @@
       <pubDate>Tue, 17 Dec 2013 11:07:51 -0300</pubDate>
       
       <guid>https://ustrajunior.com/blog/novos-finders-no-rails-4/</guid>
-      <description>&lt;p&gt;Com a entrada do Rails 4 alguns métodos mudaram. O métodos &amp;ldquo;mágicos&amp;rdquo; que a gente conhecia como &lt;code&gt;find_all_by_name&lt;/code&gt; foram marcados como deprecated e serão removidos no Rails 4.1. Vamos ver alguns exemplos:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;# Ao invés de usar os finders dinâmicos, agora usamos o where.
-
-Rails 3: Person.find_all_by_first_name(&#39;John&#39;)
-Rails 4: Person.where(first_name: &#39;John&#39;)
-
-# apartir dai utilizamos podemos utilizar algumas métodos para filtrar mais
-# First e Last
-Person.where(first_name: &#39;John&#39;).first
-Person.where(first_name: &#39;John&#39;).last
-
-Find, create, initialize
-Person.where(first_name: &#39;John&#39;).first_or_create
-Person.where(first_name: &#39;John&#39;).first_or_create!
-Person.where(first_name: &#39;John&#39;).first_or_initialize
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Outros dois métodos que foram introduzidos no Rails 4 e ajudam bastante são o find_by e find_by!&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Person.find_by(name: &#39;John&#39;)
-Person.find_by!(name: &#39;John&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Esses métodos são equivalentes a fazer &lt;code&gt;Person.where(name: &#39;John&#39;).first&lt;/code&gt; mas é uma forma mais limpa de escrever. A diferênca de usar a ! é que se ele não achar nada irá retornar um erro &lt;code&gt;ActiveRecord::RecordNotFound&lt;/code&gt;&lt;/p&gt;
-</description>
+      <description>Com a entrada do Rails 4 alguns métodos mudaram. O métodos &amp;ldquo;mágicos&amp;rdquo; que a gente conhecia como find_all_by_name foram marcados como deprecated e serão removidos no Rails 4.1. Vamos ver alguns exemplos:
+# Ao invés de usar os finders dinâmicos, agora usamos o where. Rails 3: Person.find_all_by_first_name(&#39;John&#39;) Rails 4: Person.where(first_name: &#39;John&#39;) # apartir dai utilizamos podemos utilizar algumas métodos para filtrar mais # First e Last Person.where(first_name: &#39;John&#39;).first Person.where(first_name: &#39;John&#39;).last Find, create, initialize Person.</description>
     </item>
     
   </channel>

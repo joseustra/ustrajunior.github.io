@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://ustrajunior.com/blog/json-unmarshal-custom-date-formats/</loc>
@@ -12,8 +13,8 @@
   </url>
   
   <url>
-    <loc>https://ustrajunior.com/page/about/</loc>
-    <lastmod>2016-10-21T18:27:19-03:00</lastmod>
+    <loc>https://ustrajunior.com/projects/</loc>
+    <lastmod>2016-10-02T22:55:05-04:00</lastmod>
   </url>
   
   <url>
@@ -34,6 +35,10 @@
   <url>
     <loc>https://ustrajunior.com/blog/formulario-de-contato-sem-banco-de-dados-com-activeattr/</loc>
     <lastmod>2013-06-14T19:20:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/about/</loc>
   </url>
   
   <url>
@@ -74,7 +79,7 @@
   
   <url>
     <loc>https://ustrajunior.com/tags/go/</loc>
-    <lastmod>2016-10-21T18:55:08-03:00</lastmod>
+    <lastmod>2016-11-03T19:40:18-03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -87,12 +92,6 @@
   <url>
     <loc>https://ustrajunior.com/tags/methods/</loc>
     <lastmod>2013-06-27T10:52:18-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/page/</loc>
-    <lastmod>2016-10-21T18:27:19-03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -122,6 +121,13 @@
   
   <url>
     <loc>https://ustrajunior.com/tags/</loc>
+    <lastmod>2013-06-14T19:20:00-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/time.time/</loc>
+    <lastmod>2016-11-03T19:40:18-03:00</lastmod>
     <priority>0</priority>
   </url>
   
