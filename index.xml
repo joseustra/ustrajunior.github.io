@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Code With Me</title>
+    <title>Let&#39;s code</title>
     <link>https://ustrajunior.com/</link>
-    <description>Recent content on Code With Me</description>
+    <description>Recent content on Let&#39;s code</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <copyright>José Carlos Ustra Júnior</copyright>
-    <lastBuildDate>Thu, 03 Nov 2016 19:40:18 -0300</lastBuildDate>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Sep 2018 10:20:33 +0000</lastBuildDate>
     
 	<atom:link href="https://ustrajunior.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Starting a New Ambitious Project</title>
+      <link>https://ustrajunior.com/blog/starting-a-new-ambitious-project/</link>
+      <pubDate>Wed, 12 Sep 2018 10:20:33 +0000</pubDate>
+      
+      <guid>https://ustrajunior.com/blog/starting-a-new-ambitious-project/</guid>
+      <description>For a very short time, I used the Spacemacs emacs distribution. It&amp;rsquo;s very nice, but I ended up backing to vim and eventually, I moved to VS Code. Code editors away, when I was using Spacemacs, I found the Magit git client.
+ Magit is an interface to the version control system Git, implemented as an Emacs package. Magit aspires to be a complete Git porcelain. While we cannot (yet) claim that Magit wraps and improves upon each and every Git command, it is complete enough to allow even experienced Git users to perform almost all of their daily version control tasks directly from within Emacs.</description>
+    </item>
+    
+    <item>
       <title>json: unmarshal custom date formats</title>
       <link>https://ustrajunior.com/blog/json-unmarshal-custom-date-formats/</link>
-      <pubDate>Thu, 03 Nov 2016 19:40:18 -0300</pubDate>
+      <pubDate>Thu, 03 Nov 2016 19:40:18 +0000</pubDate>
       
       <guid>https://ustrajunior.com/blog/json-unmarshal-custom-date-formats/</guid>
       <description>When we are building a JSON API, many times we have to deal with dates that we can&amp;rsquo;t have control of the layout.
@@ -26,7 +35,7 @@ type Checkin struct { Timestamp time.Time `json:&amp;quot;timestamp&amp;quot;` U
     <item>
       <title>Variadic functions in Go</title>
       <link>https://ustrajunior.com/blog/variadic-functions-in-go/</link>
-      <pubDate>Fri, 21 Oct 2016 18:55:08 -0300</pubDate>
+      <pubDate>Fri, 21 Oct 2016 18:55:08 +0000</pubDate>
       
       <guid>https://ustrajunior.com/blog/variadic-functions-in-go/</guid>
       <description>Let&amp;rsquo;s create a function that we can pass 3 numbers as arguments and them it returns the average of this numbers.
@@ -36,18 +45,9 @@ $ go run average.go 4  It works. Super easy, but not so useful.</description>
     </item>
     
     <item>
-      <title>Projects</title>
-      <link>https://ustrajunior.com/projects/</link>
-      <pubDate>Sun, 02 Oct 2016 22:55:05 -0400</pubDate>
-      
-      <guid>https://ustrajunior.com/projects/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Novos finders no rails 4</title>
       <link>https://ustrajunior.com/blog/novos-finders-no-rails-4/</link>
-      <pubDate>Tue, 17 Dec 2013 11:07:51 -0300</pubDate>
+      <pubDate>Tue, 17 Dec 2013 11:07:51 +0000</pubDate>
       
       <guid>https://ustrajunior.com/blog/novos-finders-no-rails-4/</guid>
       <description>Com a entrada do Rails 4 alguns métodos mudaram. O métodos &amp;ldquo;mágicos&amp;rdquo; que a gente conhecia como find_all_by_name foram marcados como deprecated e serão removidos no Rails 4.1. Vamos ver alguns exemplos:
@@ -57,7 +57,7 @@ $ go run average.go 4  It works. Super easy, but not so useful.</description>
     <item>
       <title>Quick tip - Retornando mais de um valor em um método</title>
       <link>https://ustrajunior.com/blog/retornando-mais-de-um-valor-em-um-metodo/</link>
-      <pubDate>Thu, 27 Jun 2013 10:52:18 -0300</pubDate>
+      <pubDate>Thu, 27 Jun 2013 10:52:18 +0000</pubDate>
       
       <guid>https://ustrajunior.com/blog/retornando-mais-de-um-valor-em-um-metodo/</guid>
       <description>O comportamento padrão de um método Ruby, é retornar o último valor que ele possui. Então se tivermos o seguinte código:
@@ -68,7 +68,7 @@ calc(10, 5) =&amp;gt; 2  Mas, em algum momento podemos precisar que esse método
     <item>
       <title>Quick tip - Exclusão condicional em um Hash</title>
       <link>https://ustrajunior.com/blog/quick-tip-exclusao-condicional-em-um-hash/</link>
-      <pubDate>Sun, 16 Jun 2013 10:28:41 -0300</pubDate>
+      <pubDate>Sun, 16 Jun 2013 10:28:41 +0000</pubDate>
       
       <guid>https://ustrajunior.com/blog/quick-tip-exclusao-condicional-em-um-hash/</guid>
       <description>Se você tem um hash e precisa remover algo dele, tem um função bem simples para esse serviço. O delete_if é um método onde você pode passar um block e fazer sua validação para decidir quais elementos irá remover.
@@ -78,7 +78,7 @@ calc(10, 5) =&amp;gt; 2  Mas, em algum momento podemos precisar que esse método
     <item>
       <title>Formulário de contato sem banco de dados com ActiveAttr</title>
       <link>https://ustrajunior.com/blog/formulario-de-contato-sem-banco-de-dados-com-activeattr/</link>
-      <pubDate>Fri, 14 Jun 2013 19:20:00 -0300</pubDate>
+      <pubDate>Fri, 14 Jun 2013 19:20:00 +0000</pubDate>
       
       <guid>https://ustrajunior.com/blog/formulario-de-contato-sem-banco-de-dados-com-activeattr/</guid>
       <description>As vezes precisamos criar um formulário de contato que simplesmente envie a mensagem por email mas não mantenha o registro no sistema. Quando se usa Rails, o fluxo normal é após o formulário ser submetido, a informação é salva no banco porque usamos ActiveRecord.
