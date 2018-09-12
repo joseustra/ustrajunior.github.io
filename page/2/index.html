@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head><head>
+<head>
+	<meta name="generator" content="Hugo 0.31.1" /><head>
     <meta name="google-site-verification" content="9vIieCe-Qpd78QOmBl63rGtIVbhY6sYyuxX3j8XWBA4" />
     <meta name="baidu-site-verification" content="LRrmH41lz7" />
     <meta charset="utf-8">
@@ -8,15 +9,14 @@
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <meta name="description" content="Com a entrada do Rails 4 alguns métodos mudaram. O métodos &#39;mágicos&#39; que a gente conhecia como find_all_by_name foram marcados como deprecated e serão removidos no Rails 4.1">
+    <meta name="description" content="Golang, Ruby and React coding">
     
     <meta name="keyword"  content="go, golang, concurrency, ruby, rails, js, javascript, react, reactjs, react-native">
-    <link rel="shortcut icon" href="https://ustrajunior.com/img/favicon.ico"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/zenburn.min.css">
-    
+    <link rel="shortcut icon" href="https://ustrajunior.com/img/favicon.ico">
 
-    <title>Novos finders no rails 4- Jose Ustra Blog</title>
+    <title>Let&#39;s code- Jose Ustra Blog</title>
 
-    <link rel="canonical" href="https://ustrajunior.com/blog/novos-finders-no-rails-4/">
+    <link rel="canonical" href="https://ustrajunior.com/">
 
     <link rel="stylesheet" href="https://ustrajunior.com/css/iDisqus.min.css"/>
 	
@@ -105,33 +105,14 @@
 
 
 
-
-<style type="text/css">
-    header.intro-header{
-        background-image: url('https://ustrajunior.com/img/home-bg.jpg')
-    }
-</style>
-<header class="intro-header" >
+<header class="intro-header" style="background-image: url('https://ustrajunior.com/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                       
-                       <a class="tag" href="/tags/rails4" title="rails4">
-                           rails4
-                        </a>
-                        
-                       <a class="tag" href="/tags/finders" title="finders">
-                           finders
-                        </a>
-                        
-                    </div>
-                    <h1>Novos finders no rails 4</h1>
-                    <h2 class="subheading"></h2>
-                    <span  class="meta">
-                        
-                    </span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>Let&#39;s code </h1>
+                    
+		            <span class="subheading">Go, Ruby &amp; React</span>
                 </div>
             </div>
         </div>
@@ -140,101 +121,131 @@
 
 
 
-
-<article>
-    <div class="container">
-        <div class="row">
-
+  
+<div class="container">
+    <div class="row">
+        
+        
+   	    <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container
+        ">
             
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
 
-		
-		
-
-    
-      <h5>December 17, 2013</h5> 
-    
-
-		<p>Com a entrada do Rails 4 alguns métodos mudaram. O métodos &ldquo;mágicos&rdquo; que a gente conhecia como <code>find_all_by_name</code> foram marcados como deprecated e serão removidos no Rails 4.1. Vamos ver alguns exemplos:</p>
-
-<pre><code class="language-ruby"># Ao invés de usar os finders dinâmicos, agora usamos o where.
-
-Rails 3: Person.find_all_by_first_name('John')
-Rails 4: Person.where(first_name: 'John')
-
-# apartir dai utilizamos podemos utilizar algumas métodos para filtrar mais
-# First e Last
-Person.where(first_name: 'John').first
-Person.where(first_name: 'John').last
-
-Find, create, initialize
-Person.where(first_name: 'John').first_or_create
-Person.where(first_name: 'John').first_or_create!
-Person.where(first_name: 'John').first_or_initialize
-</code></pre>
-
-<p>Outros dois métodos que foram introduzidos no Rails 4 e ajudam bastante são o find_by e find_by!</p>
-
-<pre><code class="language-ruby">Person.find_by(name: 'John')
-Person.find_by!(name: 'John')
-</code></pre>
-
-<p>Esses métodos são equivalentes a fazer <code>Person.where(name: 'John').first</code> mas é uma forma mais limpa de escrever. A diferênca de usar a ! é que se ele não achar nada irá retornar um erro <code>ActiveRecord::RecordNotFound</code></p>
-
-                <hr>
-
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/blog/variadic-functions-in-go/" data-toggle="tooltip" data-placement="top" title="Variadic functions in Go">&larr; Previous Post</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/blog/retornando-mais-de-um-valor-em-um-metodo/" data-toggle="tooltip" data-placement="top" title="Quick tip - Retornando mais de um valor em um método">Next Post &rarr;</a>
-                    </li>
-                    
-                </ul>
-
+<div class="post-preview">
+    <a href="https://ustrajunior.com/blog/formulario-de-contato-sem-banco-de-dados-com-activeattr/">
+        <h2 class="post-title">
+            Formulário de contato sem banco de dados com ActiveAttr
+        </h2>
+        
+        <div class="post-content-preview">
             
-<div id="disqus-comment"></div>
-
-<div id="disqus_thread"></div>
-<script>
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "ustrajunior" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
-            </div>
+              As vezes precisamos criar um formulário de contato que simplesmente envie a mensagem por email mas não mantenha o registro no sistema. Quando se usa Rails, o fluxo normal é após o formulário ser submetido, a informação é salva no banco porque usamos ActiveRecord.
             
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-            </div>
         </div>
-    </div>
-</article>
+    </a>
+    <p class="post-meta">
+      <small>June 14, 2013</small>
+    </p>
+</div>
+<hr>
+
+
+            
+
+
+<ul class="pager">
+    
+    <li class="previous">
+        <a href="/">&larr; Newer Posts</a>
+    </li>
+    
+    
+</ul>
+
+
+       	</div>
+        
+
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    
+
+    
+    <section class="visible-md visible-lg">
+        <hr><h5><a href="">ABOUT ME</a></h5>
+        <div class="short-about">
+            
+            <img src="https://ustrajunior.com/img/profile.png" />
+            
+            
+                <p>I&#39;m working on some interesting projects using primary in Go, Ruby, and React. This is my blog and I will share some of this experience.</p>
+            
+           
+           <ul class="list-inline"> 
+               
+               <li>
+                   <a href="https://ustrajunior.com/index.xml" rel="alternate" type="application/rss+xml" title="Let&#39;s code" >
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               <li>
+                   <a target="_blank" href="https://twitter.com/ustrajunior">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/ustrajunior">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               <li>
+                   <a target="_blank" href="https://linkedin.com/in/ustrajunior">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+       
+                </ul>
+            </div>
+    </section>
+    
+    
+</div>
+
+	</div>
+</div>
+
 
 
 
@@ -246,7 +257,7 @@ Person.find_by!(name: 'John')
                 <ul class="list-inline text-center">
                    
                    <li>
-                       <a href="" rel="alternate" type="application/rss+xml" title="Let&#39;s code" >
+                       <a href="https://ustrajunior.com/index.xml" rel="alternate" type="application/rss+xml" title="Let&#39;s code" >
                            <span class="fa-stack fa-lg">
                                <i class="fa fa-circle fa-stack-2x"></i>
                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -328,10 +339,7 @@ Person.find_by!(name: 'John')
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })
-</script><!-- Syntax highlighting -->
-  <script src="https://ustrajunior.com/js/highlight.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
+</script>
 
 
 
