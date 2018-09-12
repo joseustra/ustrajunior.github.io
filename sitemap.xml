@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ustrajunior.com/blog/starting-a-new-ambitious-project/</loc>
+    <lastmod>2018-09-12T06:37:49-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ustrajunior.com/blog/json-unmarshal-custom-date-formats/</loc>
     <lastmod>2016-11-03T19:40:18-03:00</lastmod>
   </url>
@@ -49,13 +54,13 @@
   
   <url>
     <loc>https://ustrajunior.com/blog/</loc>
-    <lastmod>2016-11-03T19:40:18-03:00</lastmod>
+    <lastmod>2018-09-12T06:37:49-03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ustrajunior.com/</loc>
-    <lastmod>2016-11-03T19:40:18-03:00</lastmod>
+    <lastmod>2018-09-12T06:37:49-03:00</lastmod>
     <priority>0</priority>
   </url>
   
