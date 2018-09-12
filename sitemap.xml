@@ -38,12 +38,30 @@
   </url>
   
   <url>
-    <loc>https://ustrajunior.com/</loc>
+    <loc>https://ustrajunior.com/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/activeattr/</loc>
+    <lastmod>2013-06-14T19:20:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://ustrajunior.com/about/</loc>
+    <loc>https://ustrajunior.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/functions/</loc>
+    <lastmod>2016-10-21T18:55:08+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/golang/</loc>
+    <lastmod>2018-09-12T10:20:33+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -55,6 +73,54 @@
   <url>
     <loc>https://ustrajunior.com/post/</loc>
     <lastmod>2018-09-12T10:20:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/quick-tip/</loc>
+    <lastmod>2013-06-27T10:52:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/rails/</loc>
+    <lastmod>2013-06-14T19:20:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/rails4/</loc>
+    <lastmod>2013-12-17T11:07:51+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/ruby/</loc>
+    <lastmod>2013-06-27T10:52:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/sagit/</loc>
+    <lastmod>2018-09-12T10:20:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/side-project/</loc>
+    <lastmod>2018-09-12T10:20:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/</loc>
+    <lastmod>2013-06-14T19:20:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/time.time/</loc>
+    <lastmod>2016-11-03T19:40:18+00:00</lastmod>
     <priority>0</priority>
   </url>
   

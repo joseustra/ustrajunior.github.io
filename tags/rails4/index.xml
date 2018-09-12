@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rails4 on Code With Me</title>
+    <title>Rails4 on Let&#39;s code</title>
     <link>https://ustrajunior.com/tags/rails4/</link>
-    <description>Recent content in Rails4 on Code With Me</description>
+    <description>Recent content in Rails4 on Let&#39;s code</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <copyright>José Carlos Ustra Júnior</copyright>
-    <lastBuildDate>Tue, 17 Dec 2013 11:07:51 -0300</lastBuildDate>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Dec 2013 11:07:51 +0000</lastBuildDate>
     
 	<atom:link href="https://ustrajunior.com/tags/rails4/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +14,7 @@
     <item>
       <title>Novos finders no rails 4</title>
       <link>https://ustrajunior.com/blog/novos-finders-no-rails-4/</link>
-      <pubDate>Tue, 17 Dec 2013 11:07:51 -0300</pubDate>
+      <pubDate>Tue, 17 Dec 2013 11:07:51 +0000</pubDate>
       
       <guid>https://ustrajunior.com/blog/novos-finders-no-rails-4/</guid>
       <description>Com a entrada do Rails 4 alguns métodos mudaram. O métodos &amp;ldquo;mágicos&amp;rdquo; que a gente conhecia como find_all_by_name foram marcados como deprecated e serão removidos no Rails 4.1. Vamos ver alguns exemplos:

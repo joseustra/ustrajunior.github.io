@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Functions on Code With Me</title>
+    <title>Functions on Let&#39;s code</title>
     <link>https://ustrajunior.com/tags/functions/</link>
-    <description>Recent content in Functions on Code With Me</description>
+    <description>Recent content in Functions on Let&#39;s code</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <copyright>José Carlos Ustra Júnior</copyright>
-    <lastBuildDate>Fri, 21 Oct 2016 18:55:08 -0300</lastBuildDate>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Oct 2016 18:55:08 +0000</lastBuildDate>
     
 	<atom:link href="https://ustrajunior.com/tags/functions/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +14,7 @@
     <item>
       <title>Variadic functions in Go</title>
       <link>https://ustrajunior.com/blog/variadic-functions-in-go/</link>
-      <pubDate>Fri, 21 Oct 2016 18:55:08 -0300</pubDate>
+      <pubDate>Fri, 21 Oct 2016 18:55:08 +0000</pubDate>
       
       <guid>https://ustrajunior.com/blog/variadic-functions-in-go/</guid>
       <description>Let&amp;rsquo;s create a function that we can pass 3 numbers as arguments and them it returns the average of this numbers.
