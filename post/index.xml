@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Let&#39;s code</title>
-    <link>https://ustrajunior.com/</link>
-    <description>Recent content on Let&#39;s code</description>
+    <title>Posts on Let&#39;s code</title>
+    <link>https://ustrajunior.com/post/</link>
+    <description>Recent content in Posts on Let&#39;s code</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 12 Sep 2018 10:20:33 +0000</lastBuildDate>
     
-	<atom:link href="https://ustrajunior.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ustrajunior.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -83,17 +83,6 @@ calc(10, 5) =&amp;gt; 2  Mas, em algum momento podemos precisar que esse método
       <guid>https://ustrajunior.com/blog/formulario-de-contato-sem-banco-de-dados-com-activeattr/</guid>
       <description>As vezes precisamos criar um formulário de contato que simplesmente envie a mensagem por email mas não mantenha o registro no sistema. Quando se usa Rails, o fluxo normal é após o formulário ser submetido, a informação é salva no banco porque usamos ActiveRecord.
 Para que possamos submeter um formulário e não salvar no banco mas mesmo assim ter as facilidades que o AR fornece, iremos usar o ActiveAttr. Essa gem permite que tenhamos validações no nosso model e usemos o attr_accessible por exemplo.</description>
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>https://ustrajunior.com/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ustrajunior.com/about/</guid>
-      <description>I am a software developer, with 10+ years of experience working with technologies like Java, Ruby, Go (golang), Javascript, HTML, CSS, SQL Server, MySQL, MongoDB, AWS among others
-Throughout my career, I was part of teams of various sizes and participated in the development of software of the most varied types, such as e-commerce sites, financial control systems, among others.
-Currently, I work on a software called SuperWifi, created by Nextbit (where I&amp;rsquo;m a co-founder), that provides an intelligent connection between customers and vendors.</description>
     </item>
     
   </channel>
