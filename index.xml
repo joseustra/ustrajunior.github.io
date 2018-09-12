@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Let&#39;s code</title>
+    <title>Code With Me</title>
     <link>https://ustrajunior.com/</link>
-    <description>Recent content on Let&#39;s code</description>
+    <description>Recent content on Code With Me</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 12 Sep 2018 10:20:33 +0000</lastBuildDate>
+    <language>en-US</language>
+    <copyright>José Carlos Ustra Júnior</copyright>
+    <lastBuildDate>Thu, 03 Nov 2016 19:40:18 -0300</lastBuildDate>
     
 	<atom:link href="https://ustrajunior.com/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Starting a New Ambitious Project</title>
-      <link>https://ustrajunior.com/blog/starting-a-new-ambitious-project/</link>
-      <pubDate>Wed, 12 Sep 2018 10:20:33 +0000</pubDate>
-      
-      <guid>https://ustrajunior.com/blog/starting-a-new-ambitious-project/</guid>
-      <description>For a very short time, I used the Spacemacs emacs distribution. It&amp;rsquo;s very nice, but I ended up backing to vim and eventually, I moved to VS Code. Code editors away, when I was using Spacemacs, I found the Magit git client.
- Magit is an interface to the version control system Git, implemented as an Emacs package. Magit aspires to be a complete Git porcelain. While we cannot (yet) claim that Magit wraps and improves upon each and every Git command, it is complete enough to allow even experienced Git users to perform almost all of their daily version control tasks directly from within Emacs.</description>
-    </item>
     
     <item>
       <title>json: unmarshal custom date formats</title>
@@ -42,6 +33,15 @@ type Checkin struct { Timestamp time.Time `json:&amp;quot;timestamp&amp;quot;` U
 func average(num1, num2, num3 float64) float64 { avg := (num1 + num2 + num3) / 3 return avg }  and then, you call it like this
 func main() { fmt.Println(average(2, 4, 6)) }  Le&amp;rsquo;ts run to see if works
 $ go run average.go 4  It works. Super easy, but not so useful.</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://ustrajunior.com/projects/</link>
+      <pubDate>Sun, 02 Oct 2016 22:55:05 -0400</pubDate>
+      
+      <guid>https://ustrajunior.com/projects/</guid>
+      <description></description>
     </item>
     
     <item>
