@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="As vezes precisamos criar um formulário de contato que simplesmente envie a mensagem por email mas não mantenha o registro no sistema. Quando se usa Rails, o fluxo normal é após o formulário ser submetido, a informação é salva no banco porque usamos ActiveRecord.">
+    
+    <meta name="keyword"  content="go, golang, concurrency, ruby, rails, js, javascript, react, reactjs, react-native">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/zenburn.min.css">
+    
+
+    <title>Formulário de contato sem banco de dados com ActiveAttr- Jose Ustra Blog</title>
+
+    <link rel="canonical" href="https://ustrajunior.com/blog/formulario-de-contato-sem-banco-de-dados-com-activeattr/">
+
+    
+    <link rel="stylesheet" href="https://ustrajunior.com/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="https://ustrajunior.com/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    
+    <link rel="stylesheet" href="https://ustrajunior.com/css/custom.css" type="text/css">
+</head>
+</head>
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://ustrajunior.com//">Home</a>
+                    </li>
+
+                    
+                    
+                      <li>
+                          <a href="/100daysofcode/">
+                              
+                              <span>#100DaysOfCode</span>
+                          </a>
+                      </li>
+                  
+                      <li>
+                          <a href="/about/">
+                              <i class='far fa-user-circle'></i>
+                              <span>About</span>
+                          </a>
+                      </li>
+                  
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+
+
+
+
+<style type="text/css">
+    header.intro-header{
+        background-image: url('https://ustrajunior.com/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                       
+                       <a class="tag" href="/tags/rails" title="rails">
+                           rails
+                        </a>
+                        
+                       <a class="tag" href="/tags/activeattr" title="activeattr">
+                           activeattr
+                        </a>
+                        
+                    </div>
+                    <h1>Formulário de contato sem banco de dados com ActiveAttr</h1>
+                    <h2 class="subheading"></h2>
+                    <span  class="meta">
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+    
+      <h5>June 14, 2013</h5> 
+    
+
+		<p>As vezes precisamos criar um formulário de contato que simplesmente envie a mensagem por email mas não mantenha o registro no sistema.
+Quando se usa Rails, o fluxo normal é após o formulário ser submetido, a informação é salva no banco porque usamos ActiveRecord.</p>
+
+<p>Para que possamos submeter um formulário e não salvar no banco mas mesmo assim ter as facilidades que o AR fornece, iremos usar o
+<a href="https://github.com/cgriego/active_attr">ActiveAttr</a>. Essa gem permite que tenhamos validações no nosso model e usemos o
+<em>attr_accessible</em> por exemplo.</p>
+
+<p>Então vamos primeiramente criar nosso model e adicionar algumas validações.</p>
+
+<pre><code class="language-ruby">#app/models/contact.rb
+class Contact
+  # Primeiro, vamos adicionar o ActiveAttr
+  include ActiveAttr::Model
+
+  # agora definimos os campos que queremos usar
+  attribute :name
+  attribute :email
+  attribute :subject
+  attribute :content
+
+  # e da mesma forma que fazemos no AR, vamos dizer
+  # quais atributos podem ser passados pelo form
+  attr_accessible :name, :email, :subject, :content
+
+  # também iremos adicionar algumas validações básicas
+  validates_presence_of :name
+  validates_presence_of :email
+  validates_format_of :email,
+    :with =&gt; /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
+  validates_presence_of :subject
+  validates_presence_of :content
+end
+</code></pre>
+
+<p>Com o model definido, o resto é basicamente a mesma coisa que você faria com qualquer controller e views usando AR.
+Vamos criar o controller que irá pegar os dados submetidos e passar para o Mailer para serem enviados por email.</p>
+
+<pre><code class="language-ruby"># app/controllers/contacts_controller.rb
+class ContactsController &lt; ApplicationController
+  def new
+    @contact = Contact.new
+  end
+
+  def create
+    @contact = Contact.new(params[:contact])
+    # a única diferença do método create padrão do rails,
+    # é que iremos enviar por email e não chamar o método save
+    ContactMailer.support_mail(@contact).deliver
+    redirect_to root_path, notice: 'Your message was sent'
+  end
+end
+</code></pre>
+
+<p>Agora precisamos criar a view que irá conter nosso formulário.</p>
+
+<pre><code class="language-ruby">#app/views/contacts/new.html.erb
+# eu gosto de usar [simple_form](https://github.com/plataformatec/simple_form)
+&lt;%= simple_form_for @contact do |f| %&gt;
+    &lt;%= f.error_notification %&gt;
+
+    &lt;%= f.input :name %&gt;
+    &lt;%= f.input :email %&gt;
+    &lt;%= f.input :subject %&gt;
+    &lt;%= f.input :content %&gt;
+
+    &lt;%= f.submit %&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<p>Estamos com nosso formulário praticamente pronto, precisamos apenas criar o mailer para enviar as informações de contato.
+Nada demais aqui, apenas um mailer comum.</p>
+
+<pre><code class="language-ruby">#app/mailers/contact_mailer.rb
+class ContactMailer &lt; ActionMailer::Base
+  default from: &quot;from@example.com&quot;
+
+  def contact_mail(contact)
+    @contact = contact
+    mail(to: 'contact@example.com', subject: @contact.subject)
+  end
+end
+</code></pre>
+
+<p>A view do mailer também não tem nada demais, a mesma coisa que estamos acostumados a fazer.</p>
+
+<pre><code class="language-ruby">#app/views/contact_mailer/contact_mailer.html.erb
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;New menssage from: &lt;%= @contact.name %&gt;&lt;/h1&gt;
+
+    &lt;h2&gt;&lt;%= @contact.subject %&gt;&lt;/h2&gt;
+    &lt;p&gt;&lt;%= @contact.content %&gt;&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Com isso, temos um formulário de contato que envia a mensagem diretamente para o seu email de contato.</p>
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/quick-tip-exclusao-condicional-em-um-hash/" data-toggle="tooltip" data-placement="top" title="Quick tip - Exclusão condicional em um Hash">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/100daysofcode/" data-toggle="tooltip" data-placement="top" title="#100DaysOfCode">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            <div>
+  <p>If you want to talk about this, please use Twitter at <a href="https://twitter.com/ustrajunior" target="_blank">@ustrajunior</a></p>
+</div>
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <ul class="list-inline text-center">
+                  
+                  <li>
+                    <a href="https://ustrajunior.com/index.xml" rel="alternate" type="application/rss+xml" title="Let&#39;s code" >
+                      <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                  </li>
+                  
+                  
+                  <li>
+                    <a href="https://twitter.com/ustrajunior">
+                      <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                  </li>
+                  
+
+                
+                <li>
+                  <a target="_blank" href="https://github.com/ustrajunior">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                </li>
+                
+                
+                <li>
+                  <a target="_blank" href="https://linkedin.com/in/ustrajunior">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                </li>
+                
+              </ul>
+              <p class="copyright text-muted">
+                Copyright &copy; José Ustra 2013 - 2019
+                <br />
+                <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a>
+              </p>
+          </div>
+      </div>
+  </div>
+</footer><!-- Syntax highlighting -->
+  <script src="https://ustrajunior.com/js/highlight.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-10118580-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>
+</html>

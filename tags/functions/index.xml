@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>functions on Let&#39;s code</title>
+    <link>https://ustrajunior.com/tags/functions/</link>
+    <description>Recent content in functions on Let&#39;s code</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Oct 2016 18:55:08 +0000</lastBuildDate>
+    
+	<atom:link href="https://ustrajunior.com/tags/functions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Variadic functions in Go</title>
+      <link>https://ustrajunior.com/blog/variadic-functions-in-go/</link>
+      <pubDate>Fri, 21 Oct 2016 18:55:08 +0000</pubDate>
+      
+      <guid>https://ustrajunior.com/blog/variadic-functions-in-go/</guid>
+      <description>Let&amp;rsquo;s create a function that we can pass 3 numbers as arguments and them it returns the average of this numbers.
+func average(num1, num2, num3 float64) float64 { avg := (num1 + num2 + num3) / 3 return avg }  and then, you call it like this
+func main() { fmt.Println(average(2, 4, 6)) }  Le&amp;rsquo;ts run to see if works
+$ go run average.go 4  It works. Super easy, but not so useful.</description>
+    </item>
+    
+  </channel>
+</rss>
