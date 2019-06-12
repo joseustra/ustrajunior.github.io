@@ -44,14 +44,5 @@ func main() { fmt.Println(average(2, 4, 6)) }  Le&amp;rsquo;ts run to see if wor
 $ go run average.go 4  It works. Super easy, but not so useful.</description>
     </item>
     
-    <item>
-      <title>#100DaysOfCode</title>
-      <link>https://ustrajunior.com/100daysofcode/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ustrajunior.com/100daysofcode/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>

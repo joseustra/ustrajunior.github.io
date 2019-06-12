@@ -21,14 +21,5 @@
  Magit is an interface to the version control system Git, implemented as an Emacs package. Magit aspires to be a complete Git porcelain. While we cannot (yet) claim that Magit wraps and improves upon each and every Git command, it is complete enough to allow even experienced Git users to perform almost all of their daily version control tasks directly from within Emacs.</description>
     </item>
     
-    <item>
-      <title>#100DaysOfCode</title>
-      <link>https://ustrajunior.com/100daysofcode/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ustrajunior.com/100daysofcode/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
