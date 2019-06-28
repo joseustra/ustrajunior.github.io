@@ -1,0 +1,76 @@
+==================================================================
+https://keybase.io/ustrajunior
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://ustrajunior.com
+  * I am ustrajunior (https://keybase.io/ustrajunior) on keybase.
+  * I have a public key with fingerprint DBBE 15E6 00A5 ECAA F6A4  F538 1F1B 390E 56EA 6BFF
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012060ff9501b52205375b5f23d84ca047b8c55ecdec88882c8e19bdb36b99d433a60a",
+      "fingerprint": "dbbe15e600a5ecaaf6a4f5381f1b390e56ea6bff",
+      "host": "keybase.io",
+      "key_id": "1f1b390e56ea6bff",
+      "kid": "0101072cf2e718b10e3399d17672d6b5e2b3ed334e926b87c7e2cb718a9ac6d3478a0a",
+      "uid": "a71efeeb8fed59a5acb44c0705a99c19",
+      "username": "ustrajunior"
+    },
+    "service": {
+      "hostname": "ustrajunior.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1561714976,
+  "expire_in": 157680000,
+  "prev": "0f4f4b920f058214df5bc605dda0d4d282ab26e1c14eae6a03a6781c601268c6",
+  "seqno": 25,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.0
+Comment: https://keybase.io/crypto
+
+yMNzAnicbZJ7UFVFHMdBFPTyuOAAheWDM1g6PO55PxAUSREUJciCgNtl95w9lwPX
+e/A+gCuDhKiTmmSWYpNBBPayJsiYdMCZIB9jqFGGAheacsiACJlJbk7k2LlM/lW7
+f+zs7uf73e/+di8E+/nofJc/IYS8MFH60Le3u9HpY4z4eUUVBlXJhSVWYaVobkAW
+CdkdplJFwhIxnCBxFpdlgcEJyJAkzlAcAxmZpCSeFgFOc5AXGQaJEhJ5rZEijwgB
+SpBioSBINEUBFgdYHCYrVjOyldkUq0OzlSBEBINYHAeaFgCZBbTMUDwhE5AScMSw
+CLBQljVhsWr3KrRwENhRgqJqa9rENBfvf/hHubXOkaJMIo7gIYEjitLyEBzLkRIL
+GURCCkkURSOBZCHPiRwiRaihQAAiK1E0x4O53M45O8ARSEYI8jKSGAEwQIQ0LeIc
+zgBBEAnBC9qRzQp2II122h02UOK0KqoNq47DtI1yRUTe2nov818oQVR3aA5lNtWh
+iqpF2yx2OMrsiV6xw1XmpSsQNP3rY4KKVdKqqSnKkc2uqFYskdBI0aF4jQmGJTiC
+Fjg2DkOVZYoNmRQvwXAsj2vNew4q95ZIpmUaCiQu4wxPErQkM1BkcUaSAC7REsmT
+AJIsIkSCRgCxANeekuMJDSFIlhdZzHuznVYVSyQZLScwa552xWwFDqcNYdU93YXz
+fXx1Pv4L5nm/mY9uUeijz3cvX/+woM9jPG8vuTCefW79U/nnhjZlHehyR6/tWnIU
+L04dt/zdnr61N+duu/Lymxnf3xw4eL399MKS+tq/Ch4E3jrV1GeJFGE2f+rGhKGw
+s5AONG6Laao+NtOJj4a+NBNcU9f37d7Wb4bDGo+HZZ6I3d78bEt8U3hHytSXvy/2
+NzAVrerUfh0/PHhnoOG7Awb9lcCgr3qS6v70228+Y7Vu/yLkNVfD7raAj9fMMleW
+vft5wmzU2Ptnf/C7vOfrxfcjnhs3jtyYBKbuPbLr7YvHPcbwUOQ5mj3PbZYi+gfN
+BlCZqm/DQjbWXXr6t2k3nz50Us3trYgYmKy22EOvRr8Rk7M6pV2fl77QtPmIe2vs
+GWPtPZf0kc55/Xa2Xd8c2Ny0QXhrV3J9XVbPr5vqp7rtaZ/dIh/fktS19vXd8/uO
+WGr1E3nBnpGqZ66m37yTV5HZWmdqTyuPyn0vNSt3cMRzefDQj8mlH0YGjE5nNBps
+B3tn1yUXLcl00u+sOPvpgrZt6+I3KkGx5zNmJofAaaLz0r6glDHXQPy0+5fQ9Z4G
+YWnG6IMCfc3OpRuajXBXv9KR1rxm2QeHDwXo/1BOtKxuzDFs/unJfUPua0mRM4ej
+n+/Ya/I/lpG9KCq5qHjlub5k3d1JdD/GtyapaNVKw5YXVyVkXosZbgxrrQ27iMY+
+uT3aIlSGj73SP/RY/qsnl/8DZn++HA==
+=bsyl
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/ustrajunior
+
+==================================================================
+
