@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title> ruby &middot; Let&#39;s code </title>
+<title> Posts &middot; Let&#39;s code </title>
 
 
 <link rel="stylesheet" href="https://ustrajunior.com/css/slim.css">
@@ -16,7 +16,7 @@
 <link rel="shortcut icon" href="/favicon.ico">
 
 
-<link href="/tags/ruby/index.xml" rel="alternate" type="application/rss+xml" title="Let&#39;s code" />
+<link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="Let&#39;s code" />
 
 </head>
 
@@ -44,28 +44,6 @@
       <div class="posts">
          
         <div class="post">
-          <h2 class="post-title"><a href="https://ustrajunior.com/blog/retornando-mais-de-um-valor-em-um-metodo/">Quick tip - Retornando mais de um valor em um método</a></h2>
-          <span class="post-date">Jun 27, 2013</span>
-		  
-			<span class="post-tags">
-		  	
-			          #<a href="https://ustrajunior.com/tags/quick-tip">quick-tip</a>&nbsp;
-		  	
-			          #<a href="https://ustrajunior.com/tags/ruby">ruby</a>&nbsp;
-		  	
-		    </span>
-		  
-		  
-		  	<div class="summary">
-				O comportamento padrão de um método Ruby, é retornar o último valor que ele possui. Então se tivermos o seguinte código:
-def calc(x, y) a = x + y b = x - y c = x * y d = x / y end  Não importa quantas variáveis você tenha definido, o retorno sempre será a última, no caso d
-calc(10, 5) =&gt; 2  Mas, em algum momento podemos precisar que esse método retorne mais de um valor.
-				<a class="read-more" href="/blog/retornando-mais-de-um-valor-em-um-metodo/">&hellip;</a>
-			</div>
-		  
-        </div>
-        
-        <div class="post">
           <h2 class="post-title"><a href="https://ustrajunior.com/blog/quick-tip-exclusao-condicional-em-um-hash/">Quick tip - Exclusão condicional em um Hash</a></h2>
           <span class="post-date">Jun 16, 2013</span>
 		  
@@ -86,9 +64,31 @@ calc(10, 5) =&gt; 2  Mas, em algum momento podemos precisar que esse método ret
 		  
         </div>
         
+        <div class="post">
+          <h2 class="post-title"><a href="https://ustrajunior.com/blog/formulario-de-contato-sem-banco-de-dados-com-activeattr/">Formulário de contato sem banco de dados com ActiveAttr</a></h2>
+          <span class="post-date">Jun 14, 2013</span>
+		  
+			<span class="post-tags">
+		  	
+			          #<a href="https://ustrajunior.com/tags/rails">rails</a>&nbsp;
+		  	
+			          #<a href="https://ustrajunior.com/tags/activeattr">activeattr</a>&nbsp;
+		  	
+		    </span>
+		  
+		  
+		  	<div class="summary">
+				As vezes precisamos criar um formulário de contato que simplesmente envie a mensagem por email mas não mantenha o registro no sistema. Quando se usa Rails, o fluxo normal é após o formulário ser submetido, a informação é salva no banco porque usamos ActiveRecord.
+Para que possamos submeter um formulário e não salvar no banco mas mesmo assim ter as facilidades que o AR fornece, iremos usar o ActiveAttr. Essa gem permite que tenhamos validações no nosso model e usemos o attr_accessible por exemplo.
+				<a class="read-more" href="/blog/formulario-de-contato-sem-banco-de-dados-com-activeattr/">&hellip;</a>
+			</div>
+		  
+        </div>
+        
       </div>
       <div class="pagination">
-   
+  
+  <a class="btn previous" href="/post/">Newer</a>  
 </div>
     </div>
     <div class="footer">
