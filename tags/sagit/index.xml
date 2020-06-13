@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sagit on Let&#39;s code</title>
+    <title>sagit on José Ustra</title>
     <link>https://ustrajunior.com/tags/sagit/</link>
-    <description>Recent content in sagit on Let&#39;s code</description>
+    <description>Recent content in sagit on José Ustra</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Wed, 12 Sep 2018 10:20:33 +0000</lastBuildDate>
     
 	<atom:link href="https://ustrajunior.com/tags/sagit/index.xml" rel="self" type="application/rss+xml" />
@@ -13,12 +13,11 @@
     
     <item>
       <title>Starting a New Ambitious Project</title>
-      <link>https://ustrajunior.com/blog/starting-a-new-ambitious-project/</link>
+      <link>https://ustrajunior.com/post/starting-a-new-ambitious-project/</link>
       <pubDate>Wed, 12 Sep 2018 10:20:33 +0000</pubDate>
       
-      <guid>https://ustrajunior.com/blog/starting-a-new-ambitious-project/</guid>
-      <description>For a very short time, I used the Spacemacs emacs distribution. It&amp;rsquo;s very nice, but I ended up backing to vim and eventually, I moved to VS Code. Code editors away, when I was using Spacemacs, I found the Magit git client.
- Magit is an interface to the version control system Git, implemented as an Emacs package. Magit aspires to be a complete Git porcelain. While we cannot (yet) claim that Magit wraps and improves upon each and every Git command, it is complete enough to allow even experienced Git users to perform almost all of their daily version control tasks directly from within Emacs.</description>
+      <guid>https://ustrajunior.com/post/starting-a-new-ambitious-project/</guid>
+      <description>For a very short time, I used the Spacemacs emacs distribution. It&amp;rsquo;s very nice, but I ended up backing to vim and eventually, I moved to VS Code. Code editors away, when I was using Spacemacs, I found the Magit git client.</description>
     </item>
     
   </channel>

@@ -1,116 +1,129 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title> ruby &middot; Let&#39;s code </title>
-
-
-<link rel="stylesheet" href="https://ustrajunior.com/css/slim.css">
-<link rel="stylesheet" href="https://ustrajunior.com/css/highlight.min.css">
-<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/ocean.min.css">
-
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="/favicon.ico">
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="José Ustra">
+		<meta name="description" content="My coding experiments">
+		<meta name="generator" content="Hugo 0.72.0" />
+		<title>ruby &middot; José Ustra</title>
+		<link rel="shortcut icon" href="https://ustrajunior.comimages/favicon.ico">
+		<link rel="stylesheet" href="https://ustrajunior.comcss/style.css">
+		<link rel="stylesheet" href="https://ustrajunior.comcss/highlight.css">
 
 
-<link href="/tags/ruby/index.xml" rel="alternate" type="application/rss+xml" title="Let&#39;s code" />
+		
+		<link rel="stylesheet" href="https://ustrajunior.comcss/font-awesome.min.css">
+		
 
-</head>
+		
 
-<body>
-  <div class="container">
-    <div class="header">
-  <h1 class="site-title"><a href="https://ustrajunior.com/">Let&#39;s code</a></h1>
-  <p class="site-tagline"></p>
-  <div class="nav">
-    <a class="nav-btn" href="#">
-      <span class="ci ci-burger"></span>
+		
+	</head>
+
+	<body>
+	<nav class="main-nav">
+	
+	
+		<a href='https://ustrajunior.com'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ustrajunior.comabout'>about</a>
+
+	
+
+	
+</nav>
+
+	<div class="profile">
+    <section id="wrapper">
+        <header id="header">
+            <a href='https://ustrajunior.comabout'>
+                <img id="avatar" class="2x" src="https://ustrajunior.comimages/avatar.png"/>
+            </a>
+            <h1>José Ustra</h1>
+            <h2>Software Engineer</h2>
+        </header>
+    </section>
+</div>
+
+
+	<section id="wrapper" class="home">
+		
+		<div class="archive">
+			<h3>2013</h3>
+			<ul>
+					
+					<div class="post-item">
+						<div class="post-time">Jun 16</div>
+						<a href="https://ustrajunior.com/post/quick-tip-exclusao-condicional-em-um-hash/" class="post-link">
+							Quick tip - Exclusão condicional em um Hash
+						</a>
+					</div>
+					
+			</ul>
+		</div>
+		
+		<footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.github.com/ustrajunior">
+        <i class="fa fa-github-square"></i>
     </a>
-    <ul class="nav-list">
-      
-      <li><a href="/about/">About</a></li>
-       
-	  <li class="spacer">&ac;</li>
+    
+    <a class="symbol" href="https://www.twitter.com/ustrajunior">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
 
-      <li><a href="https://github.com/ustrajunior">Github</a></li> 
-      <li><a href="https://twitter.com/ustrajunior">Twitter</a></li> 
-    </ul>
-  </div>
+
 </div>
-    <div class="content">
-      <div class="posts">
-         
-        <div class="post">
-          <h2 class="post-title"><a href="https://ustrajunior.com/blog/retornando-mais-de-um-valor-em-um-metodo/">Quick tip - Retornando mais de um valor em um método</a></h2>
-          <span class="post-date">Jun 27, 2013</span>
-		  
-			<span class="post-tags">
-		  	
-			          #<a href="https://ustrajunior.com/tags/quick-tip">quick-tip</a>&nbsp;
-		  	
-			          #<a href="https://ustrajunior.com/tags/ruby">ruby</a>&nbsp;
-		  	
-		    </span>
-		  
-		  
-		  	<div class="summary">
-				O comportamento padrão de um método Ruby, é retornar o último valor que ele possui. Então se tivermos o seguinte código:
-def calc(x, y) a = x + y b = x - y c = x * y d = x / y end  Não importa quantas variáveis você tenha definido, o retorno sempre será a última, no caso d
-calc(10, 5) =&gt; 2  Mas, em algum momento podemos precisar que esse método retorne mais de um valor.
-				<a class="read-more" href="/blog/retornando-mais-de-um-valor-em-um-metodo/">&hellip;</a>
-			</div>
-		  
-        </div>
-        
-        <div class="post">
-          <h2 class="post-title"><a href="https://ustrajunior.com/blog/quick-tip-exclusao-condicional-em-um-hash/">Quick tip - Exclusão condicional em um Hash</a></h2>
-          <span class="post-date">Jun 16, 2013</span>
-		  
-			<span class="post-tags">
-		  	
-			          #<a href="https://ustrajunior.com/tags/quick-tip">quick-tip</a>&nbsp;
-		  	
-			          #<a href="https://ustrajunior.com/tags/ruby">ruby</a>&nbsp;
-		  	
-		    </span>
-		  
-		  
-		  	<div class="summary">
-				Se você tem um hash e precisa remover algo dele, tem um função bem simples para esse serviço. O delete_if é um método onde você pode passar um block e fazer sua validação para decidir quais elementos irá remover.
-# Supondo um Hash de cores com red, green e blue colors = { red: '#FF0000', green: '#008000', blue: '#0000FF' } # Mas eu não quero mais o red, então eu uso o **delete_if** colors.
-				<a class="read-more" href="/blog/quick-tip-exclusao-condicional-em-um-hash/">&hellip;</a>
-			</div>
-		  
-        </div>
-        
-      </div>
-      <div class="pagination">
-   
-</div>
-    </div>
-    <div class="footer">
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> José Ustra
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+	</section>
+
+	<div class="dd">
+	</div>
+
+	<script src="https://ustrajunior.comjs/jquery-3.3.1.min.js"></script>
+<script src="https://ustrajunior.comjs/main.js"></script>
+<script src="https://ustrajunior.comjs/highlight.min.js"></script>
+<script src="https://ustrajunior.comjs/go.min.js"></script>
+<script src="https://ustrajunior.comjs/elixir.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
   
-  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
-  
-</div>
-
-  </div>
-  <script src="https://ustrajunior.com/js/slim.js"></script>
-  <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-10118580-1', 'auto');
-ga('send', 'pageview');
-
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-10118580-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
 
 
-</body>
 
+	</body>
 </html>

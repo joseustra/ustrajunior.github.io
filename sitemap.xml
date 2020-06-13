@@ -1,126 +1,109 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ustrajunior.com/blog/starting-a-new-ambitious-project/</loc>
+    <loc>https://ustrajunior.com/tags/golang/</loc>
     <lastmod>2018-09-12T10:20:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/blog/json-unmarshal-custom-date-formats/</loc>
-    <lastmod>2016-11-03T19:40:18+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/blog/variadic-functions-in-go/</loc>
-    <lastmod>2016-10-21T18:55:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/blog/novos-finders-no-rails-4/</loc>
-    <lastmod>2013-12-17T11:07:51+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/blog/retornando-mais-de-um-valor-em-um-metodo/</loc>
-    <lastmod>2013-06-27T10:52:18+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/blog/quick-tip-exclusao-condicional-em-um-hash/</loc>
-    <lastmod>2013-06-16T10:28:41+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/blog/formulario-de-contato-sem-banco-de-dados-com-activeattr/</loc>
-    <lastmod>2013-06-14T19:20:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/about/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/categories/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ustrajunior.com/</loc>
     <lastmod>2018-09-12T10:20:33+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ustrajunior.com/post/</loc>
     <lastmod>2018-09-12T10:20:33+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/tags/activeattr/</loc>
-    <lastmod>2013-06-14T19:20:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/tags/functions/</loc>
-    <lastmod>2016-10-21T18:55:08+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/tags/golang/</loc>
-    <lastmod>2018-09-12T10:20:33+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/tags/quick-tip/</loc>
-    <lastmod>2013-06-27T10:52:18+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/tags/rails/</loc>
-    <lastmod>2013-06-14T19:20:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/tags/rails4/</loc>
-    <lastmod>2013-12-17T11:07:51+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ustrajunior.com/tags/ruby/</loc>
-    <lastmod>2013-06-27T10:52:18+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ustrajunior.com/tags/sagit/</loc>
     <lastmod>2018-09-12T10:20:33+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ustrajunior.com/tags/side-project/</loc>
     <lastmod>2018-09-12T10:20:33+00:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/post/starting-a-new-ambitious-project/</loc>
+    <lastmod>2018-09-12T10:20:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/</loc>
+    <lastmod>2018-09-12T10:20:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/post/json-unmarshal-custom-date-formats/</loc>
+    <lastmod>2016-11-03T19:40:18+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ustrajunior.com/tags/time.time/</loc>
     <lastmod>2016-11-03T19:40:18+00:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/functions/</loc>
+    <lastmod>2016-10-21T18:55:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/post/variadic-functions-in-go/</loc>
+    <lastmod>2016-10-21T18:55:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/post/novos-finders-no-rails-4/</loc>
+    <lastmod>2013-12-17T11:07:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/rails4/</loc>
+    <lastmod>2013-12-17T11:07:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/post/quick-tip-exclusao-condicional-em-um-hash/</loc>
+    <lastmod>2013-06-16T10:28:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/quick-tip/</loc>
+    <lastmod>2013-06-16T10:28:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/ruby/</loc>
+    <lastmod>2013-06-16T10:28:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/activeattr/</loc>
+    <lastmod>2013-06-14T19:20:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/post/formulario-de-contato-sem-banco-de-dados-com-activeattr/</loc>
+    <lastmod>2013-06-14T19:20:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/tags/rails/</loc>
+    <lastmod>2013-06-14T19:20:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/about/</loc>
+    <lastmod>1986-01-03T22:25:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ustrajunior.com/categories/</loc>
   </url>
   
 </urlset>

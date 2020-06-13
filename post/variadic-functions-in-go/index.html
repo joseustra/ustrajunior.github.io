@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="José Ustra">
+		<meta name="description" content="My coding experiments">
+		<meta name="generator" content="Hugo 0.72.0" />
+		<title>Variadic functions in Go &middot; José Ustra</title>
+		<link rel="shortcut icon" href="https://ustrajunior.comimages/favicon.ico">
+		<link rel="stylesheet" href="https://ustrajunior.comcss/style.css">
+		<link rel="stylesheet" href="https://ustrajunior.comcss/highlight.css">
+
+
+		
+		<link rel="stylesheet" href="https://ustrajunior.comcss/font-awesome.min.css">
+		
+
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ustrajunior.com'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ustrajunior.comabout'>about</a>
+
+	
+
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Variadic functions in Go
+                    </h1>
+                    <h2 class="headline">
+                    Oct 21, 2016 18:55
+                    · 226 words
+                    · 2 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://ustrajunior.comtags/golang">golang</a>
+                          
+                              <a href="https://ustrajunior.comtags/functions">functions</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents"></nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>Let&rsquo;s create a function that we can pass 3 numbers as arguments and them it returns the average of this numbers.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">average</span>(<span style="color:#a6e22e">num1</span>, <span style="color:#a6e22e">num2</span>, <span style="color:#a6e22e">num3</span> <span style="color:#66d9ef">float64</span>) <span style="color:#66d9ef">float64</span> {
+	<span style="color:#a6e22e">avg</span> <span style="color:#f92672">:=</span> (<span style="color:#a6e22e">num1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num2</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num3</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">3</span>
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">avg</span>
+}
+</code></pre></div><p>and then, you call it like this</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">average</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>))
+}
+</code></pre></div><p>Le&rsquo;ts run to see if works</p>
+<pre><code>$ go run average.go
+4
+</code></pre><p>It works. Super easy, but not so useful. Normally, when you want to calculate the average, you don&rsquo;t know how many arguments you will need to accept. How can we handle this?</p>
+<p>When you have a function that you can&rsquo;t determinate the number of arguments you are going to pass then you need a Variadic function.</p>
+<p>So, to do this, we just need use &lsquo;&hellip;&rsquo; before the parameter type on the function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">average</span>(<span style="color:#a6e22e">numbers</span> <span style="color:#f92672">...</span><span style="color:#66d9ef">float64</span>) <span style="color:#66d9ef">float64</span> {
+ <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>But now, we don&rsquo;t have separated values anymore, the <em>&hellip;float64</em> will be transformed in a slice of float64 and we need to iterate over the items to calculate the average.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">average</span>(<span style="color:#a6e22e">numbers</span> <span style="color:#f92672">...</span><span style="color:#66d9ef">float64</span>) <span style="color:#66d9ef">float64</span> {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">total</span> <span style="color:#66d9ef">float64</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">num</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">numbers</span> {
+		<span style="color:#a6e22e">total</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">num</span>
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">total</span> <span style="color:#f92672">/</span> float64(len(<span style="color:#a6e22e">numbers</span>))
+}
+</code></pre></div><p>This is a Variadic function in Go and we can pass as many arguments we want.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">average</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">12</span>))
+}
+</code></pre></div>
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.github.com/ustrajunior">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/ustrajunior">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> José Ustra
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://ustrajunior.comjs/jquery-3.3.1.min.js"></script>
+<script src="https://ustrajunior.comjs/main.js"></script>
+<script src="https://ustrajunior.comjs/highlight.min.js"></script>
+<script src="https://ustrajunior.comjs/go.min.js"></script>
+<script src="https://ustrajunior.comjs/elixir.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-10118580-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+    </body>
+</html>

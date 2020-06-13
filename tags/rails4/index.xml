@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>rails4 on Let&#39;s code</title>
+    <title>rails4 on José Ustra</title>
     <link>https://ustrajunior.com/tags/rails4/</link>
-    <description>Recent content in rails4 on Let&#39;s code</description>
+    <description>Recent content in rails4 on José Ustra</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Tue, 17 Dec 2013 11:07:51 +0000</lastBuildDate>
     
 	<atom:link href="https://ustrajunior.com/tags/rails4/index.xml" rel="self" type="application/rss+xml" />
@@ -13,12 +13,11 @@
     
     <item>
       <title>Novos finders no rails 4</title>
-      <link>https://ustrajunior.com/blog/novos-finders-no-rails-4/</link>
+      <link>https://ustrajunior.com/post/novos-finders-no-rails-4/</link>
       <pubDate>Tue, 17 Dec 2013 11:07:51 +0000</pubDate>
       
-      <guid>https://ustrajunior.com/blog/novos-finders-no-rails-4/</guid>
-      <description>Com a entrada do Rails 4 alguns métodos mudaram. O métodos &amp;ldquo;mágicos&amp;rdquo; que a gente conhecia como find_all_by_name foram marcados como deprecated e serão removidos no Rails 4.1. Vamos ver alguns exemplos:
-# Ao invés de usar os finders dinâmicos, agora usamos o where. Rails 3: Person.find_all_by_first_name(&#39;John&#39;) Rails 4: Person.where(first_name: &#39;John&#39;) # apartir dai utilizamos podemos utilizar algumas métodos para filtrar mais # First e Last Person.where(first_name: &#39;John&#39;).first Person.where(first_name: &#39;John&#39;).last Find, create, initialize Person.</description>
+      <guid>https://ustrajunior.com/post/novos-finders-no-rails-4/</guid>
+      <description>Com a entrada do Rails 4 alguns métodos mudaram. O métodos &amp;lsquo;mágicos&amp;rsquo; que a gente conhecia como find_all_by_name foram marcados como deprecated e serão removidos no Rails 4.1</description>
     </item>
     
   </channel>
