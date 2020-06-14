@@ -6,19 +6,10 @@
     <description>Recent content in golang on Let&#39;s Code</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 12 Sep 2018 10:20:33 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Nov 2016 19:40:18 +0000</lastBuildDate>
     
 	<atom:link href="https://ustrajunior.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Starting a New Ambitious Project</title>
-      <link>https://ustrajunior.com/post/starting-a-new-ambitious-project/</link>
-      <pubDate>Wed, 12 Sep 2018 10:20:33 +0000</pubDate>
-      
-      <guid>https://ustrajunior.com/post/starting-a-new-ambitious-project/</guid>
-      <description>For a very short time, I used the Spacemacs emacs distribution. It&amp;rsquo;s very nice, but I ended up backing to vim and eventually, I moved to VS Code. Code editors away, when I was using Spacemacs, I found the Magit git client.</description>
-    </item>
     
     <item>
       <title>json: unmarshal custom date formats</title>
