@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Let&#39;s Code</title>
+    <title>Tags on Jose Ustra</title>
     <link>https://ustrajunior.com/tags/</link>
-    <description>Recent content in Tags on Let&#39;s Code</description>
+    <description>Recent content in Tags on Jose Ustra</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 03 Nov 2016 19:40:18 +0000</lastBuildDate>
-    
-	<atom:link href="https://ustrajunior.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language>
+    <lastBuildDate>Thu, 03 Nov 2016 19:40:18 +0000</lastBuildDate><atom:link href="https://ustrajunior.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>golang</title>
       <link>https://ustrajunior.com/tags/golang/</link>
@@ -35,51 +31,6 @@
       <pubDate>Fri, 21 Oct 2016 18:55:08 +0000</pubDate>
       
       <guid>https://ustrajunior.com/tags/functions/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rails4</title>
-      <link>https://ustrajunior.com/tags/rails4/</link>
-      <pubDate>Tue, 17 Dec 2013 11:07:51 +0000</pubDate>
-      
-      <guid>https://ustrajunior.com/tags/rails4/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>quick-tip</title>
-      <link>https://ustrajunior.com/tags/quick-tip/</link>
-      <pubDate>Sun, 16 Jun 2013 10:28:41 +0000</pubDate>
-      
-      <guid>https://ustrajunior.com/tags/quick-tip/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ruby</title>
-      <link>https://ustrajunior.com/tags/ruby/</link>
-      <pubDate>Sun, 16 Jun 2013 10:28:41 +0000</pubDate>
-      
-      <guid>https://ustrajunior.com/tags/ruby/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>activeattr</title>
-      <link>https://ustrajunior.com/tags/activeattr/</link>
-      <pubDate>Fri, 14 Jun 2013 19:20:00 +0000</pubDate>
-      
-      <guid>https://ustrajunior.com/tags/activeattr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rails</title>
-      <link>https://ustrajunior.com/tags/rails/</link>
-      <pubDate>Fri, 14 Jun 2013 19:20:00 +0000</pubDate>
-      
-      <guid>https://ustrajunior.com/tags/rails/</guid>
       <description></description>
     </item>
     
