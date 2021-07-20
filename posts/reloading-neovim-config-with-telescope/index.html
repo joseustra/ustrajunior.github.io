@@ -1,0 +1,85 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=generator content="Hugo 0.85.0"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=twitter:card content="summary"><meta name=twitter:title content="Reloading Neovim Config With Telescope - Jose Ustra"><meta name=twitter:description content="Recently, I&amp;rsquo;ve decided to change my Neovim configuration to use Lua. If you want to do it too, this guide has much information about what you need to do.
+In Lua, when you require a module, it is cached, so next time you require it, you are not getting the changes. The problem with this is that I usually have two open tabs with a few splits each when I&amp;rsquo;m working."><meta name=twitter:site content="https://ustrajunior.com/"><meta name=twitter:creator content><meta name=twitter:image content="https://ustrajunior.com/images/avatar.jpg"><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="og:title" content="Reloading Neovim Config With Telescope - Jose Ustra"><meta property="og:description" content="Recently, I&amp;rsquo;ve decided to change my Neovim configuration to use Lua. If you want to do it too, this guide has much information about what you need to do.
+In Lua, when you require a module, it is cached, so next time you require it, you are not getting the changes. The problem with this is that I usually have two open tabs with a few splits each when I&amp;rsquo;m working."><meta property="og:url" content="https://ustrajunior.com/posts/reloading-neovim-config-with-telescope/"><meta property="og:site_name" content="Jose Ustra"><meta property="og:image" content="https://ustrajunior.com/images/avatar.jpg"><title>Reloading Neovim Config With Telescope - Jose Ustra</title><meta name=author content="Jose Ustra"><meta name=description content="Recently, I&amp;rsquo;ve decided to change my Neovim configuration to use Lua. If you want to do it too, this guide has much information about what you need to do.
+In Lua, when you require a module, it is cached, so next time you require it, you are not getting the changes. The problem with this is that I usually have two open tabs with a few splits each when I&amp;rsquo;m working."><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Arvo:400,700"><link rel=stylesheet href=https://ustrajunior.com/css/theme.css><link rel=stylesheet href=https://ustrajunior.com/css/chroma.dracula.css></head><body class="font-serif antialiased bg-gray-200 border-t-4 border-blue-500"><div class="w-full p-6 md:w-2/3 md:px-0 md:mx-auto xl:w-2/5"><header class=mb-6><div class="mb-6 md:flex md:items-center"><div><a class="text-lg mb-8 inline-block" href=/>&larr; Back Home</a><h1 class="text-4xl font-bold">Reloading Neovim Config With Telescope</h1><time datetime="2021-07-19 20:26:35 +0100">19 Jul 2021</time><ol class=mt-4><li class=inline-block><a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href=https://ustrajunior.com/tags/neovim>neovim</a></li><li class=inline-block><a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href=https://ustrajunior.com/tags/lua>lua</a></li><li class=inline-block><a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href=https://ustrajunior.com/tags/telescope>telescope</a></li></ol></div></div></header><article class=mb-12><p>Recently, I&rsquo;ve decided to change my Neovim configuration to use Lua. If you want to do it too, this <a href=https://github.com/nanotee/nvim-lua-guide>guide</a> has much information about what you need to do.</p><p>In Lua, when you require a module, it is cached, so next time you require it, you are not getting the changes. The problem with this is that I usually have two open tabs with a few splits each when I&rsquo;m working. After changing something in my config, I need to close Neovim to load everything again.</p><p>But, for my luck, a project named <a href=https://github.com/nvim-lua/plenary.nvim>plenary.nvim</a> exposes a function that can reload the Lua module. So I decided to create a <a href=https://github.com/nvim-telescope/telescope.nvim>Telescope</a> picker to reload the module I changed.</p><p>After some research and copying a few snippets from <a href=https://github.com/tjdevries>TJ DeVries</a>, I developed a solution that works pretty well.</p><p>The idea is to use Telescope to list my Lua modules, and when I click <em>ctrl+e</em>, it will call the Plenary function to reload the module. So this is how I did it.</p><p><img src=/uploads/2021/07/reloading-nvim-config.gif alt="telescope screenshot" title="Reloading config"></p><p>I&rsquo;ve namespaced my modules with <strong>ju</strong>, so my <strong>nvim</strong> folder looks like this:</p><pre><code>├── init.lua
+├── lua
+│   └── ju
+│       ├── colors.lua
+│       ├── compe.lua
+│       ├── elixir.lua
+│       ├── general.lua
+│       ├── git.lua
+│       ├── go.lua
+│       ├── keymappings.lua
+│       ├── lsp
+│       │   └── init.lua
+│       ├── plugins.lua
+│       ├── settings.lua
+│       ├── telescope.lua
+│       ├── treesitter
+│       │   └── init.lua
+│       └── utils
+│           ├── init.lua
+│           └── reload.lua
+</code></pre><p>in <em>lua/ju/utils/reload.lua</em>, I have two global helper functions. The first one just prints using the Neovim API, the second uses Plenary to reload the module and require it again.</p><div class=highlight><pre class=chroma><code class=language-lua data-lang=lua><span class=n>P</span> <span class=o>=</span> <span class=kr>function</span><span class=p>(</span><span class=n>v</span><span class=p>)</span>
+  <span class=n>print</span><span class=p>(</span><span class=n>vim.inspect</span><span class=p>(</span><span class=n>v</span><span class=p>))</span>
+  <span class=kr>return</span> <span class=n>v</span>
+<span class=kr>end</span>
+
+<span class=kr>if</span> <span class=n>pcall</span><span class=p>(</span><span class=n>require</span><span class=p>,</span> <span class=s2>&#34;plenary&#34;</span><span class=p>)</span> <span class=kr>then</span>
+  <span class=n>RELOAD</span> <span class=o>=</span> <span class=n>require</span><span class=p>(</span><span class=s2>&#34;plenary.reload&#34;</span><span class=p>).</span><span class=n>reload_module</span>
+
+  <span class=n>R</span> <span class=o>=</span> <span class=kr>function</span><span class=p>(</span><span class=n>name</span><span class=p>)</span>
+    <span class=n>RELOAD</span><span class=p>(</span><span class=n>name</span><span class=p>)</span>
+    <span class=kr>return</span> <span class=n>require</span><span class=p>(</span><span class=n>name</span><span class=p>)</span>
+  <span class=kr>end</span>
+<span class=kr>end</span>
+</code></pre></div><p>In my Telescope config, I&rsquo;ve created a new picker that will list just the files inside <em>.config/nvim/lua</em>, with a new keybinding to execute the above function.</p><p>I&rsquo;ve added comments to the code, so it will be easier to follow.</p><div class=highlight><pre class=chroma><code class=language-lua data-lang=lua><span class=kd>local</span> <span class=n>M</span> <span class=o>=</span> <span class=p>{}</span>
+
+<span class=kr>function</span> <span class=nc>M</span><span class=p>.</span><span class=nf>reload</span><span class=p>()</span>
+  <span class=c1>-- Telescope will give us something like ju/colors.lua, </span>
+  <span class=c1>-- so this function convert the selected entry to </span>
+  <span class=c1>-- the module name: ju.colors</span>
+  <span class=kd>local</span> <span class=kr>function</span> <span class=nf>get_module_name</span><span class=p>(</span><span class=n>s</span><span class=p>)</span>
+    <span class=kd>local</span> <span class=n>module_name</span><span class=p>;</span>
+
+    <span class=n>module_name</span> <span class=o>=</span> <span class=n>s</span><span class=p>:</span><span class=n>gsub</span><span class=p>(</span><span class=s2>&#34;%.lua&#34;</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>)</span>
+    <span class=n>module_name</span> <span class=o>=</span> <span class=n>module_name</span><span class=p>:</span><span class=n>gsub</span><span class=p>(</span><span class=s2>&#34;%/&#34;</span><span class=p>,</span> <span class=s2>&#34;.&#34;</span><span class=p>)</span>
+    <span class=n>module_name</span> <span class=o>=</span> <span class=n>module_name</span><span class=p>:</span><span class=n>gsub</span><span class=p>(</span><span class=s2>&#34;%.init&#34;</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>)</span>
+
+    <span class=kr>return</span> <span class=n>module_name</span>
+  <span class=kr>end</span>
+
+  <span class=kd>local</span> <span class=n>prompt_title</span> <span class=o>=</span> <span class=s2>&#34;~ neovim modules ~&#34;</span>
+
+  <span class=c1>-- sets the path to the lua folder</span>
+  <span class=kd>local</span> <span class=n>path</span> <span class=o>=</span> <span class=s2>&#34;~/.config/nvim/lua&#34;</span>
+
+  <span class=kd>local</span> <span class=n>opts</span> <span class=o>=</span> <span class=p>{</span>
+    <span class=n>prompt_title</span> <span class=o>=</span> <span class=n>prompt_title</span><span class=p>,</span>
+    <span class=n>cwd</span> <span class=o>=</span> <span class=n>path</span><span class=p>,</span>
+
+    <span class=n>attach_mappings</span> <span class=o>=</span> <span class=kr>function</span><span class=p>(</span><span class=n>_</span><span class=p>,</span> <span class=n>map</span><span class=p>)</span>
+     <span class=c1>-- Adds a new map to ctrl+e.</span>
+      <span class=n>map</span><span class=p>(</span><span class=s2>&#34;i&#34;</span><span class=p>,</span> <span class=s2>&#34;&lt;c-e&gt;&#34;</span><span class=p>,</span> <span class=kr>function</span><span class=p>(</span><span class=n>_</span><span class=p>)</span>
+        <span class=c1>-- these two a very self-explanatory</span>
+        <span class=kd>local</span> <span class=n>entry</span> <span class=o>=</span> <span class=n>require</span><span class=p>(</span><span class=s2>&#34;telescope.actions.state&#34;</span><span class=p>).</span><span class=n>get_selected_entry</span><span class=p>()</span>
+        <span class=kd>local</span> <span class=n>name</span> <span class=o>=</span> <span class=n>get_module_name</span><span class=p>(</span><span class=n>entry.value</span><span class=p>)</span>
+
+        <span class=c1>-- call the helper method to reload the module</span>
+        <span class=c1>-- and give some feedback</span>
+        <span class=n>R</span><span class=p>(</span><span class=n>name</span><span class=p>)</span>
+        <span class=n>P</span><span class=p>(</span><span class=n>name</span> <span class=o>..</span> <span class=s2>&#34; RELOADED!!!&#34;</span><span class=p>)</span>
+      <span class=kr>end</span><span class=p>)</span>
+
+      <span class=kr>return</span> <span class=kc>true</span>
+    <span class=kr>end</span>
+  <span class=p>}</span>
+
+  <span class=c1>-- call the builtin method to list files</span>
+  <span class=n>require</span><span class=p>(</span><span class=s1>&#39;telescope.builtin&#39;</span><span class=p>).</span><span class=n>find_files</span><span class=p>(</span><span class=n>opts</span><span class=p>)</span>
+<span class=kr>end</span>
+
+<span class=kr>return</span> <span class=n>M</span><span class=p>;</span>
+</code></pre></div><p>I have this map that calls the function.</p><div class=highlight><pre class=chroma><code class=language-lua data-lang=lua><span class=n>vim.api</span><span class=p>.</span><span class=n>nvim_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;Leader&gt;qr&#39;</span><span class=p>,</span>  <span class=s1>&#39;&lt;cmd&gt;:lua require(&#34;ju.telescope&#34;).reload()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=p>{</span> <span class=n>noremap</span> <span class=o>=</span> <span class=kc>true</span><span class=p>,</span> <span class=n>silent</span> <span class=o>=</span> <span class=kc>true</span> <span class=p>})</span>
+</code></pre></div><p>Now, when you change your config, you can use Telescope to reload it.</p></article><footer><p>&copy; 2021. Proudly made with 💕 with <a href=https://gohugo.io/ target=_blank>Hugo</a> and <a href=https://tailwindcss.com/ target=_blank>TailwindCSS</a>.</p></footer></div><script async defer data-domain=ustrajunior.com src=https://analytics.ustrajunior.com/js/plausible.js></script></body></html>
